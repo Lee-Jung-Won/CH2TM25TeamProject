@@ -7,7 +7,7 @@ using namespace std;
 Character::Character(string characterName) {
     name = characterName;   // 캐릭터 이름
     level = 1;              // 레벨
-    maxHealth = 5000;       // 최대 체력
+    maxHealth = 200;        // 최대 체력
     health = 200;           // 체력
     attack = 30;            // 공격력
     exp = 0;                // 경험치
