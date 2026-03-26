@@ -123,11 +123,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ClCompile Include="Danso.cpp" />
-=======
     <ClCompile Include="DrunkenWoman.cpp" />
->>>>>>> monster
     <ClCompile Include="HealthPotion.cpp" />
     <ClCompile Include="BattleSystem.cpp" />
     <ClCompile Include="DrunkenOjisang.cpp" />
@@ -139,11 +136,8 @@
   <ItemGroup>
     <ClInclude Include="BattleSystem.h" />
     <ClInclude Include="Character.h" />
-<<<<<<< HEAD
     <ClInclude Include="Danso.h" />
-=======
     <ClInclude Include="DrunkenWoman.h" />
->>>>>>> monster
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="DrunkenOjisang.h" />

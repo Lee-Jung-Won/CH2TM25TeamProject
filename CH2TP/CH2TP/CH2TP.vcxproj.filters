@@ -33,14 +33,11 @@
     <ClCompile Include="HealthPotion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="Danso.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
-=======
     <ClCompile Include="DrunkenWoman.cpp">
->>>>>>> monster
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -63,11 +60,8 @@
     <ClInclude Include="Item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="Danso.h">
-=======
     <ClInclude Include="DrunkenWoman.h">
->>>>>>> monster
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
