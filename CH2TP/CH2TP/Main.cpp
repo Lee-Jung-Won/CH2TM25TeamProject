@@ -14,6 +14,13 @@ int main() {
     // 입력받은 이름으로 캐릭터 객체를 생성
     Character myCharacter(playerName);
 
+    HealthPotion hp(3);
+    HealthPotion hp1(3, "B");
+    myCharacter.addhpinventory(&hp);
+    myCharacter.addhpinventory(&hp);
+    myCharacter.addhpinventory(&hp1);
+
+
     // 생성된 캐릭터의 상태를 언제든지 확인할 수 있게 출력
     myCharacter.ShowStatus();
 
