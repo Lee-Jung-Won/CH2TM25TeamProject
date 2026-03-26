@@ -26,4 +26,5 @@ void HealthPotion::use(Character* chr)
     //chr hpget, hpset func need
     // hpgetter + each rank have diffenrent value(switch) * 50(exemple)
     // set upline value
+    
 }

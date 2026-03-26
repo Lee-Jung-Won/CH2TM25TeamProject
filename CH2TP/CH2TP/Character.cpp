@@ -12,7 +12,7 @@ Character::Character(const string& characterName)
     attack = 30;
     exp = 0;
     maxExp = 100;
-
+    instance = this;
     cout << "Welcome, " << name << "! Your adventure begins." << endl;
 }
 
@@ -29,6 +29,11 @@ int Character::getAttack() const
 int Character::getHealth() const 
 {
     return health; 
+}
+
+void Character::setHealth(int newhp)
+{
+    health = newhp;
 }
 
 void Character::takeDamage(const Character& attacker)
@@ -57,6 +62,11 @@ void Character::ShowStatus() const
         cout << i->getName().rank << "- " << i->getName().name
             << "... " << i->getstore() << endl;
     }
+}
+
+Character* Character::getInstance()
+{
+    return instance;
 }
 
 void Character::addhpinventory(Item* it)

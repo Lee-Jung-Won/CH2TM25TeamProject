@@ -14,12 +14,8 @@ int main() {
     Character player(playerName);
     player.ShowStatus();
 
-    HealthPotion hp(3);
-    HealthPotion hp1(3, "B");
+    HealthPotion hp(3); // 
     player.addhpinventory(&hp);
-    player.addhpinventory(&hp);
-    player.addhpinventory(&hp);
-    player.addhpinventory(&hp1);
 
 
     

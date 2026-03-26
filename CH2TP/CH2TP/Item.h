@@ -31,6 +31,5 @@ public:
 	virtual void use(Character* chr) = 0;
 	virtual int getstore() = 0;
 	virtual void setstore(int newnum) = 0;
-
 };
 

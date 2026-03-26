@@ -16,13 +16,15 @@ protected:
     int attack;
     int exp;
     int maxExp;
+    Character* instance;
 
     //-------------
-    vector<Item*> inventory;
+    vector<Item*> inventory; // supply
+    vector<Item*> inventory2; // weapon
 public:
 
     // put name to initialize
-
+    Character* getInstance();
     void addhpinventory(Item* it);
     void useitem(int index);
     //--------------get
@@ -36,6 +38,7 @@ public:
     virtual void takeDamage(const Character& attacker);
 
     int getHealth() const;
+    void setHealth(int newhp);
 
     void ShowStatus() const;
 

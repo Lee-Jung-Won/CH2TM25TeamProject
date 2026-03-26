@@ -3,13 +3,13 @@
 
 using namespace std;
 
-class HealthPotion: public Item
+class Danso : public Item
 {
 private:
 	Tn totalname;
 	int healthRestore;
 public:
-	HealthPotion(int cnt, string r = "C", string n = "HP")
+	Danso(int cnt, string r = "C", string n = "Danso")
 	{
 		totalname.name = n;
 		totalname.rank = r;
