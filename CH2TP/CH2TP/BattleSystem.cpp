@@ -1,43 +1,80 @@
 #include "BattleSystem.h"
 #include <iostream>
+#include <random>
+
 using namespace std;
 
-void BattleSystem::Battle(Character& player, Monster& monster) 
+void BattleSystem::StartBattle(Character& player)
 {
-    monster.StartText();
-    cout << "A wild " << monster.getName() << " appears!" << endl;
-    cout << "Monster HP: " << monster.getHealth()
-        << ", Attack: " << monster.getAttack() << endl;
+	vector<Monster*> monsters;
 
-    cout << "\n--- Battle Start ---\n";
+	if (player.getLevel() >= 1)
+	{
+		monsters.push_back(new DrunkenOjisang());
+	}
 
-    while (player.getHealth() > 0 && monster.getHealth() > 0) 
-    {  
-        cout << "\033[32m" << "===PLAYER TURN===" << "\033[0m" << endl;
-        cout << player.getName() << " attacks " << monster.getName() << "!" << endl;
-        monster.takeDamage(player);
+	if (player.getLevel() >= 1)
+	{
+		monsters.push_back(new DrunkenWoman());
+	}
 
-        if (monster.getHealth() <= 0) 
-        {
-            monster.DeadText();
-            break;
-        }
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<> dist(0, monsters.size() - 1);
 
-        cout << "\033[33m" << "===ENEMY TURN===" << "\033[0m" << endl;
-        cout << monster.getName() << " attacks " << player.getName() << "!" << endl;
-        player.takeDamage(monster);
+	Monster* enemy = monsters[dist(gen)];
 
-        if (player.getHealth() <= 0) {
-            cout << player.getName() << " has been defeated!" << endl;
-            break;
-        }
+	cout << "\033[31m\n!!!EnemySpawne!!!\033[0m\n" << endl;
+	enemy->StartText();
+	cout << "Monster HP: " << enemy->getHealth() << ", Attack: " << enemy->getAttack() << endl;
 
-        cout << "\n--- Turn End ---\n";
-        player.ShowStatus();
-        cout << monster.getName() << " HP: " << monster.getHealth() << endl;
-    }
+	cout << "\033[33m\n=== Battle Start! ===\033[0m\n";
+	
+	int i = 1;
 
-    cout << "\n--- Battle End ---\n";
-    player.ShowStatus();
-    cout << monster.getName() << " HP: " << monster.getHealth() << endl;
+	while (player.getHealth() > 0 && enemy->getHealth() > 0)
+	{	
+		cout << "Press Enter to proceed with the turn..." << endl; 
+		cin.get();
+
+		cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl; // player turn
+		cout << player.getName() << " Attack! " << enemy->getName() << endl;
+		enemy->takeDamage(player);
+
+		// player.ShowStatus();
+
+		if (enemy->getHealth() <= 0) // enemy die
+		{
+			enemy->DeadText();
+
+			cout << "\033[33m\n=== REWARD!! ===\033[0m\n";
+
+			int inExp = enemy->getRewardExp();
+			int inGold = enemy->getRewardGold();
+
+			player.GainExp(inExp);
+			player.GainGold(inGold);
+
+			player.ShowStatus();
+
+			break;
+		}
+
+		cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+		cout << enemy->getName() << " Attack! " << player.getName() << endl;
+		player.takeDamage(*enemy);
+
+		cout << "\033[33m\n=== " << i << " Turn End ===\033[0m\n";
+		++i;
+
+		if (player.getHealth() <= 0) // player die
+		{
+			cout << player.getName() << "is Dead..." << endl;
+			cout << "\033[31m\n=== GAME OVER ===\033[0m\n" << endl;
+			cout << "Press Enter to exit..." << endl;
+			cin.get();
+
+			exit(0); // program exit
+		}
+	}	
 }

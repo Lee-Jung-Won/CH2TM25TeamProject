@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-Character::Character(const string& characterName) 
+Character::Character(const string& characterName, bool showMessage) 
 {
     name = characterName;
     level = 1;
@@ -12,7 +12,13 @@ Character::Character(const string& characterName)
     attack = 30;
     exp = 0;
     maxExp = 100;
+<<<<<<< HEAD
     instance = this;
+=======
+    gold = 0;
+
+    if (showMessage)
+>>>>>>> monster
     cout << "Welcome, " << name << "! Your adventure begins." << endl;
 }
 
@@ -31,9 +37,15 @@ int Character::getHealth() const
     return health; 
 }
 
+<<<<<<< HEAD
 void Character::setHealth(int newhp)
 {
     health = newhp;
+=======
+int Character::getLevel() const
+{
+    return level;
+>>>>>>> monster
 }
 
 void Character::takeDamage(const Character& attacker)
@@ -54,6 +66,7 @@ void Character::ShowStatus() const
     cout << "Health: " << health << " / " << maxHealth << endl;
     cout << "Attack: " << attack << endl;
     cout << "EXP:    " << exp << " / " << maxExp << endl;
+    cout << "GOLD:   " << gold << " G" << endl;
     cout << "============================\n" << endl;
 
     //add inventory list print
@@ -110,6 +123,14 @@ void Character::GainExp(int inExp)//using word inExp for monster's drop exp
         LevelUp();
         
     }
+}
+
+void Character::GainGold(int inGold)
+{
+    gold += inGold;
+
+    cout << "+ " << inGold << " GOLD" << endl;
+
 }
 
 void Character::LevelUp()

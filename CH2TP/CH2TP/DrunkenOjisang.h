@@ -3,16 +3,14 @@
 #include <string>
 #include <random>
 
-class DrunkenOjisang : public Monster 
+class DrunkenOjisang : public Monster
 {
-private:
-    int level;
-
 public:
-    DrunkenOjisang();
+    DrunkenOjisang();  
 
-    void takeDamage(const Character& attacker) override;
-    void StartText() override;
-    void DeadText() override;
-    void setStat();
+    void StartText() override;  
+    void DeadText() override;   
+
+private:
+    void setStats(); 
 };

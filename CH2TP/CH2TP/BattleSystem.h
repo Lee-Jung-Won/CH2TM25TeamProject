@@ -1,10 +1,12 @@
 #pragma once
 #include "Character.h"
 #include "Monster.h"
-#include <iostream>
+#include "DrunkenOjisang.h"
+#include "DrunkenWoman.h"
+#include <vector>
 
-class BattleSystem 
+class BattleSystem
 {
 public:
-    static void Battle(Character& player, Monster& monster);
+    static void StartBattle(Character& player);
 };
