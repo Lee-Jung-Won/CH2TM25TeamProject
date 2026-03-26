@@ -15,7 +15,7 @@ protected:
     int maxHealth;
     int attack;
     int exp;
-    const int EXP_PER_LEVEL = 100;
+    int maxExp;
 
     //-------------
     vector<Item*> inventory;
@@ -38,4 +38,9 @@ public:
     int getHealth() const;
 
     void ShowStatus() const;
+
+    void GainExp(int inExp);
+
+    void LevelUp();
+
 };

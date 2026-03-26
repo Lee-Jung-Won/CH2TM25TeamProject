@@ -21,7 +21,7 @@ int main() {
     player.addhpinventory(&hp1);
 
 
-    // 생성된 캐릭터의 상태를 언제든지 확인할 수 있게 출력
+    
     player.ShowStatus();
 
     DrunkenOjisang monster;

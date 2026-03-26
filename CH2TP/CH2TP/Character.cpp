@@ -11,6 +11,7 @@ Character::Character(const string& characterName)
     health = 200;
     attack = 30;
     exp = 0;
+    maxExp = 100;
 
     cout << "Welcome, " << name << "! Your adventure begins." << endl;
 }
@@ -47,7 +48,7 @@ void Character::ShowStatus() const
     cout << "Level:  " << level << endl;
     cout << "Health: " << health << " / " << maxHealth << endl;
     cout << "Attack: " << attack << endl;
-    cout << "EXP:    " << exp << " / " << EXP_PER_LEVEL << endl;
+    cout << "EXP:    " << exp << " / " << maxExp << endl;
     cout << "============================\n" << endl;
 
     //add inventory list print
@@ -86,3 +87,38 @@ void Character::useitem(int index)
     // >inventory[index]->use(character*) >> result : eachclass use-overriding...
 }
 
+void Character::GainExp(int inExp)//using word inExp for monster's drop exp
+{
+    exp += inExp;
+
+    cout << "+ " << inExp << " EXP" << endl;
+
+    while (exp >= maxExp)
+    {
+        exp -= maxExp;
+
+        LevelUp();
+        
+    }
+}
+
+void Character::LevelUp()
+{
+
+
+    level++;
+
+    maxHealth += 50;
+
+    maxExp += 50;
+
+    health = maxHealth;
+
+    attack += 20;
+
+    cout << "CurrentLevel is " << level << endl;
+    
+    cout << "For Next Level, You need " << maxExp << "EXP" << endl;
+
+
+}
