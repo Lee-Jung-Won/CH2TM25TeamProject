@@ -15,13 +15,13 @@ int main() {
 
     HealthPotion hp(3);
     HealthPotion hp1(3, "B");
-    myCharacter.addhpinventory(&hp);
-    myCharacter.addhpinventory(&hp);
-    myCharacter.addhpinventory(&hp1);
+    player.addhpinventory(&hp);
+    player.addhpinventory(&hp);
+    player.addhpinventory(&hp1);
 
 
     // 생성된 캐릭터의 상태를 언제든지 확인할 수 있게 출력
-    myCharacter.ShowStatus();
+    player.ShowStatus();
 
     DrunkenOjisang monster;
 

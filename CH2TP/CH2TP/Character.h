@@ -24,16 +24,12 @@ protected:
 public:
 
     // put name to initialize
-    Character(std::string characterName);
-   
+
     void addhpinventory(Item* it);
     void useitem(int index);
     //--------------get
     // 
     //--------------set
-    // 
-    // 
-    // show stat
 
     Character(const string& characterName);
 
