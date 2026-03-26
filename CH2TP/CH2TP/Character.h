@@ -1,28 +1,26 @@
 #pragma once
 #include <string>
+#include <iostream>
+using namespace std;
 
-class Character
+class Character 
 {
-private:
-    std::string name;
+protected:   
+    string name;
     int level;
     int health;
     int maxHealth;
     int attack;
     int exp;
-    int MaxExp;
     const int EXP_PER_LEVEL = 100;
 
 public:
-    // �̸��� �޾Ƽ� ĳ���͸� �����ϴ� ������
-    Character(std::string characterName);
+    Character(const string& characterName);
 
-    // ĳ���� ���¸� �����ִ� �Լ�
+    virtual string getName() const;
+    virtual int getAttack() const;
+    virtual void takeDamage(const Character& attacker);
+
+    int getHealth() const;
     void ShowStatus() const;
-    
-    void GainExp();
-
-    void Levelup() const;
-
 };
-

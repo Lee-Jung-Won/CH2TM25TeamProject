@@ -1,21 +1,21 @@
 #include <iostream>
-#include <string>
 #include "Character.h"
+#include "DrunkenOjisang.h"
+#include "BattleSystem.h"
 
 using namespace std;
 
 int main() {
     string playerName;
-
-    // ������ ĳ������ �̸��� �Է�
     cout << "Enter your character's name: ";
-    getline(cin, playerName); 
+    getline(cin, playerName);
 
-    // �Է¹��� �̸����� ĳ���� ��ü�� ����
-    Character myCharacter(playerName);
+    Character player(playerName);
+    player.ShowStatus();
 
-    // ������ ĳ������ ���¸� �������� Ȯ���� �� �ְ� ���
-    myCharacter.ShowStatus();
+    DrunkenOjisang monster;
+
+    BattleSystem::Battle(player, monster);
 
     return 0;
 }
