@@ -2,13 +2,16 @@
 #include <string>
 #include <vector>
 #include "HealthPotion.h"
+#include <iostream>
 using namespace std;
 
-class Character
+class Character 
 {
 private:
 
     std::string name;
+protected:   
+    string name;
     int level;
     int health;
     int maxHealth;
@@ -19,6 +22,7 @@ private:
     //-------------
     vector<Item*> inventory;
 public:
+
     // put name to initialize
     Character(std::string characterName);
    
@@ -30,6 +34,14 @@ public:
     // 
     // 
     // show stat
+
+    Character(const string& characterName);
+
+    virtual string getName() const;
+    virtual int getAttack() const;
+    virtual void takeDamage(const Character& attacker);
+
+    int getHealth() const;
+
     void ShowStatus() const;
 };
-

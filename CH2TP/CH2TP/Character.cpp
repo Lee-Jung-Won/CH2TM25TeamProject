@@ -2,29 +2,57 @@
 #include <iostream>
 #include <algorithm>
 
-using namespace std;
-
-// 넘어온 이름으로 캐릭터 초기 스탯 설정
-Character::Character(string characterName) {
-    name = characterName;   // 캐릭터 이름
-    level = 1;              // 레벨
-    maxHealth = 200;        // 최대 체력
-    health = 200;           // 체력
-    attack = 30;            // 공격력
-    exp = 0;                // 경험치
+Character::Character(const string& characterName) 
+{
+    name = characterName;
+    level = 1;
+    maxHealth = 200;
+    health = 200;
+    attack = 30;
+    exp = 0;
 
     cout << "Welcome, " << name << "! Your adventure begins." << endl;
 }
 
-// print func
+
 void Character::ShowStatus() const {
     cout << "\n=== ===" << endl;
+
+string Character::getName() const 
+{
+    return name;
+}
+
+int Character::getAttack() const
+{
+    return attack;
+}
+
+int Character::getHealth() const 
+{
+    return health; 
+}
+
+void Character::takeDamage(const Character& attacker)
+{
+    int damage = attacker.getAttack();
+    health -= damage;
+    if (health < 0) health = 0;
+
+    cout << name << " takes " << damage << " damage from "
+        << attacker.getName() << "! Remaining HP: " << health << endl;
+}
+
+void Character::ShowStatus() const 
+{
+    cout << "\n=== ===\n";
     cout << "Name:   " << name << endl;
     cout << "Level:  " << level << endl;
     cout << "Health: " << health << " / " << maxHealth << endl;
     cout << "Attack: " << attack << endl;
     cout << "EXP:    " << exp << " / " << EXP_PER_LEVEL << endl;
     cout << "============================\n" << endl;
+
     //add inventory list print
     for (auto& i : inventory)
     {
@@ -60,3 +88,4 @@ void Character::useitem(int index)
     // character* need... > usefunc need Character*....
     // >inventory[index]->use(character*) >> result : eachclass use-overriding...
 }
+

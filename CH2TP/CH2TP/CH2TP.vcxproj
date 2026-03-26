@@ -123,14 +123,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="HealthPotion.cpp" />
+=======
+    <ClCompile Include="BattleSystem.cpp" />
+    <ClCompile Include="DrunkenOjisang.cpp" />
+>>>>>>> main
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Monster.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BattleSystem.h" />
     <ClInclude Include="Character.h" />
+<<<<<<< HEAD
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Item.h" />
+=======
+    <ClInclude Include="DrunkenOjisang.h" />
+    <ClInclude Include="Monster.h" />
+>>>>>>> main
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

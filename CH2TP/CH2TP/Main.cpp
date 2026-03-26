@@ -1,18 +1,17 @@
 #include <iostream>
-#include <string>
 #include "Character.h"
+#include "DrunkenOjisang.h"
+#include "BattleSystem.h"
 
 using namespace std;
 
 int main() {
     string playerName;
-
-    // 생성할 캐릭터의 이름을 입력
     cout << "Enter your character's name: ";
-    getline(cin, playerName); 
+    getline(cin, playerName);
 
-    // 입력받은 이름으로 캐릭터 객체를 생성
-    Character myCharacter(playerName);
+    Character player(playerName);
+    player.ShowStatus();
 
     HealthPotion hp(3);
     HealthPotion hp1(3, "B");
@@ -23,6 +22,10 @@ int main() {
 
     // 생성된 캐릭터의 상태를 언제든지 확인할 수 있게 출력
     myCharacter.ShowStatus();
+
+    DrunkenOjisang monster;
+
+    BattleSystem::Battle(player, monster);
 
     return 0;
 }
