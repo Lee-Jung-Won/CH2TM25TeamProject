@@ -1,6 +1,7 @@
 #include "Character.h"
 #include <iostream>
 #include <algorithm>
+using namespace std;
 
 Character::Character(const string& characterName) 
 {
@@ -13,10 +14,6 @@ Character::Character(const string& characterName)
 
     cout << "Welcome, " << name << "! Your adventure begins." << endl;
 }
-
-
-void Character::ShowStatus() const {
-    cout << "\n=== ===" << endl;
 
 string Character::getName() const 
 {

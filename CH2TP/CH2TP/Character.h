@@ -7,9 +7,7 @@ using namespace std;
 
 class Character 
 {
-private:
 
-    std::string name;
 protected:   
     string name;
     int level;
@@ -33,7 +31,7 @@ public:
 
     Character(const string& characterName);
 
-    virtual string getName() const;
+    string getName() const;
     virtual int getAttack() const;
     virtual void takeDamage(const Character& attacker);
 
