@@ -31,7 +31,7 @@ public:
 
     Character(const string& characterName);
 
-    string getName() const;
+    virtual string getName() const;
     virtual int getAttack() const;
     virtual void takeDamage(const Character& attacker);
 
