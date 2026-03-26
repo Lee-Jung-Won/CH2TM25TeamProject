@@ -10,13 +10,19 @@ private:
     int maxHealth;
     int attack;
     int exp;
+    int MaxExp;
     const int EXP_PER_LEVEL = 100;
 
 public:
-    // ÀÌ¸§À» ¹Þ¾Æ¼­ Ä³¸¯ÅÍ¸¦ »ý¼ºÇÏ´Â »ý¼ºÀÚ
+    // ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     Character(std::string characterName);
 
-    // Ä³¸¯ÅÍ »óÅÂ¸¦ º¸¿©ÁÖ´Â ÇÔ¼ö
+    // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½
     void ShowStatus() const;
+    
+    void GainExp();
+
+    void Levelup() const;
+
 };
 

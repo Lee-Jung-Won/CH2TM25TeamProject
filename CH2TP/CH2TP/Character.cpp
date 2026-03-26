@@ -3,19 +3,20 @@
 
 using namespace std;
 
-// ³Ñ¾î¿Â ÀÌ¸§À¸·Î Ä³¸¯ÅÍ ÃÊ±â ½ºÅÈ ¼³Á¤
+// ï¿½Ñ¾ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 Character::Character(string characterName) {
-    name = characterName;   // Ä³¸¯ÅÍ ÀÌ¸§
-    level = 1;              // ·¹º§
-    maxHealth = 200;        // ÃÖ´ë Ã¼·Â
-    health = 200;           // Ã¼·Â
-    attack = 30;            // °ø°Ý·Â
-    exp = 0;                // °æÇèÄ¡
+    name = characterName;   // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+    level = 1;              // ï¿½ï¿½ï¿½ï¿½
+    maxHealth = 200;        // ï¿½Ö´ï¿½ Ã¼ï¿½ï¿½
+    health = 200;           // Ã¼ï¿½ï¿½
+    attack = 30;            // ï¿½ï¿½ï¿½Ý·ï¿½
+    exp = 0;                // ï¿½ï¿½ï¿½ï¿½Ä¡
+    MaxExp = 100;
 
     cout << "Welcome, " << name << "! Your adventure begins." << endl;
 }
 
-// »óÅÂ Ãâ·Â ÇÔ¼ö
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 void Character::ShowStatus() const {
     cout << "\n=== ===" << endl;
     cout << "Name:   " << name << endl;
@@ -24,4 +25,14 @@ void Character::ShowStatus() const {
     cout << "Attack: " << attack << endl;
     cout << "EXP:    " << exp << " / " << EXP_PER_LEVEL << endl;
     cout << "============================\n" << endl;
+}
+
+void GainExp() {
+    
+    
+}
+
+
+void Character::Levelup() {
+
 }
