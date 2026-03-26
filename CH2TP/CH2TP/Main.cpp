@@ -17,6 +17,7 @@ int main() {
     HealthPotion hp1(3, "B");
     player.addhpinventory(&hp);
     player.addhpinventory(&hp);
+    player.addhpinventory(&hp);
     player.addhpinventory(&hp1);
 
 
