@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DrunkenWoman.cpp" />
     <ClCompile Include="HealthPotion.cpp" />
     <ClCompile Include="BattleSystem.cpp" />
     <ClCompile Include="DrunkenOjisang.cpp" />
@@ -133,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="BattleSystem.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="DrunkenWoman.h" />
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="DrunkenOjisang.h" />

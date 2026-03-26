@@ -12,7 +12,6 @@ int main() {
     getline(cin, playerName);
 
     Character player(playerName);
-    player.ShowStatus();
 
     HealthPotion hp(3);
     HealthPotion hp1(3, "B");
@@ -21,24 +20,23 @@ int main() {
     player.addhpinventory(&hp);
     player.addhpinventory(&hp1);
 
-
-    
     player.ShowStatus();
 
     DrunkenOjisang monster;
 
-    BattleSystem::Battle(player, monster);
+    BattleSystem::StartBattle(player);
     while (true)
     {
         cin >> choice;
         if (choice == 0) break;
         switch (choice)
         {
-        case 1: BattleSystem::Battle(player, monster); break;
+        case 1: BattleSystem::StartBattle(player); break;
 
-        case 2: cout << "»óÁ¡"; break;
+        case 2: cout << "ï¿½ï¿½ï¿½ï¿½"; break;
         }
     }
+
 
     return 0;
 }

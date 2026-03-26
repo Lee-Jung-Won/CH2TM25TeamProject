@@ -16,6 +16,7 @@ protected:
     int attack;
     int exp;
     int maxExp;
+    int gold;
 
     //-------------
     vector<Item*> inventory;
@@ -29,7 +30,7 @@ public:
     // 
     //--------------set
 
-    Character(const string& characterName);
+    Character(const string& characterName, bool showMessage = true);
 
     virtual string getName() const;
     virtual int getAttack() const;
@@ -39,8 +40,13 @@ public:
 
     void ShowStatus() const;
 
+    int getLevel() const;
+
     void GainExp(int inExp);
+
+    void GainGold(int inGold);
 
     void LevelUp();
 
+    virtual ~Character() {}
 };
