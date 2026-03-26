@@ -29,6 +29,11 @@ int Character::getAttack() const
     return attack;
 }
 
+void Character::setattack(int dmgval)
+{
+    attack = dmgval;
+}
+
 int Character::getHealth() const 
 {
     return health; 
@@ -66,9 +71,11 @@ void Character::ShowStatus() const
     cout << "============================\n" << endl;
 
     //add inventory list print
+    int cntt = 0;
     for (auto& i : inventory)
     {
-        cout << i->getName().rank << "- " << i->getName().name
+        cntt++;
+        cout << cntt << ". " << i->getName().rank << "- " << i->getName().name
             << "... " << i->getstore() << endl;
     }
 }
@@ -97,6 +104,30 @@ void Character::addhpinventory(Item* it)
             return a->getName() < b->getName();
         }
         );
+    //store0 >> delete func
+
+}
+
+void Character::addweaponinventory(Item* it)
+{
+    if (inventory2.size() == 0)
+    {
+        it->use(instance);
+        inventory2.emplace_back(it);
+    }
+    // 같은 이름이 있다면 > 등급을 따지고 높으면 해당주소칸 값 덮어쓰기
+    for (auto& i : inventory2)
+    {
+        if (i->getName().name == it->getName().name)
+        {
+            if (GetRankPriority(i->getName().rank) < GetRankPriority(it->getName().rank))
+            {
+                i = it;
+                i->use(instance);
+                return;
+            }
+        }
+    }
 }
 
 void Character::useitem(int index)
@@ -104,6 +135,12 @@ void Character::useitem(int index)
     // inventory of index = in-index
     // character* need... > usefunc need Character*....
     // >inventory[index]->use(character*) >> result : eachclass use-overriding...
+    if ((index < 1) || (index > inventory.size()))
+    {
+        return; // wrong index
+    }
+    inventory[index - 1]->use(instance);
+
 }
 
 void Character::GainExp(int inExp)//using word inExp for monster's drop exp

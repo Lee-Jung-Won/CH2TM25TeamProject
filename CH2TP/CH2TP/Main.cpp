@@ -13,9 +13,9 @@ int main() {
 
     Character player(playerName);
 
-    HealthPotion hp(3); // 
+    HealthPotion hp(3); // start potion
     player.addhpinventory(&hp);
-
+    
     player.ShowStatus();
 
     DrunkenOjisang monster;

@@ -10,11 +10,13 @@ typedef struct Tname
 	string rank;
 } Tn;
 
+int GetRankPriority(const string& rank); // custom string - value
+
 inline bool operator<(const Tn& a, const Tn& b)
 {
 	if (a.name == b.name)
 	{
-		return a.rank < b.rank;
+		return GetRankPriority(a.rank) < GetRankPriority(b.rank);
 	}
 	return a.name < b.name;
 }

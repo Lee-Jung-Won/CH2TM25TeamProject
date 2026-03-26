@@ -9,7 +9,7 @@ private:
 	Tn totalname;
 	int healthRestore;
 public:
-	HealthPotion(int cnt, string r = "C", string n = "HP")
+	HealthPotion(int cnt, string r = "Normal", string n = "HP")
 	{
 		totalname.name = n;
 		totalname.rank = r;

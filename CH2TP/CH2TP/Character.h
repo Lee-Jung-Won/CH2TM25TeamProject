@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "HealthPotion.h"
+#include "Danso.h"
 #include <iostream>
 using namespace std;
 
@@ -27,6 +28,7 @@ public:
     // put name to initialize
     Character* getInstance();
     void addhpinventory(Item* it);
+    void addweaponinventory(Item* it);
     void useitem(int index);
     //--------------get
     // 
@@ -36,6 +38,7 @@ public:
 
     virtual string getName() const;
     virtual int getAttack() const;
+    void setattack(int dmgval);
     virtual void takeDamage(const Character& attacker);
 
     int getHealth() const;
