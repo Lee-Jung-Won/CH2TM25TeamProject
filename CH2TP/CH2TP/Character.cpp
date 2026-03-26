@@ -12,14 +12,11 @@ Character::Character(const string& characterName, bool showMessage)
     attack = 30;
     exp = 0;
     maxExp = 100;
-<<<<<<< HEAD
     instance = this;
-=======
     gold = 0;
 
-    if (showMessage)
->>>>>>> monster
-    cout << "Welcome, " << name << "! Your adventure begins." << endl;
+    if (showMessage) 
+        cout << "Welcome, " << name << "! Your adventure begins." << endl;
 }
 
 string Character::getName() const 
@@ -37,15 +34,14 @@ int Character::getHealth() const
     return health; 
 }
 
-<<<<<<< HEAD
+
 void Character::setHealth(int newhp)
 {
     health = newhp;
-=======
+}
 int Character::getLevel() const
 {
     return level;
->>>>>>> monster
 }
 
 void Character::takeDamage(const Character& attacker)

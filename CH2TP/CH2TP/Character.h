@@ -16,11 +16,8 @@ protected:
     int attack;
     int exp;
     int maxExp;
-<<<<<<< HEAD
     Character* instance;
-=======
     int gold;
->>>>>>> monster
 
     //-------------
     vector<Item*> inventory; // supply
