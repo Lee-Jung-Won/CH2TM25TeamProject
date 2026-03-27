@@ -8,16 +8,15 @@ const Tn& Danso::getName() const
 
 int Danso::getstore()
 {
-	return durable;
+	return dmg;
 }
 
 void Danso::setstore(int newnum)
 {
-	durable = newnum;
+	dmg = newnum;
 }
 
 void Danso::use(Character* chr)
 {
-	chr->setattack(chr->getAttack() + GetRankPriority(totalname.rank) * 20);
-
+	chr->setattack(chr->getAttack() + dmg);
 }

@@ -12,10 +12,12 @@ int main() {
     getline(cin, playerName);
 
     Character player(playerName);
+    // hp( many, "string" ) ====== weapon("string")
+    HealthPotion hp(3); // start potion - Normal = +30 Rare = +50 Epic = +100
+    Danso weapon; // "Plastic" , "Silver" , "Gold" , "Platinum" , Diamond"
+    player.addhpinventory(&hp); // start potion input
+    player.addweaponinventory(&weapon); // start weapon input
 
-    HealthPotion hp(3); // start potion
-    player.addhpinventory(&hp);
-    
     player.ShowStatus();
 
     DrunkenOjisang monster;
