@@ -123,11 +123,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ClCompile Include="ChurchLover.cpp" />
-=======
     <ClCompile Include="AngryHomeless.cpp" />
->>>>>>> main
     <ClCompile Include="Danso.cpp" />
     <ClCompile Include="DeepsleepMan.cpp" />
     <ClCompile Include="DrunkenWoman.cpp" />
