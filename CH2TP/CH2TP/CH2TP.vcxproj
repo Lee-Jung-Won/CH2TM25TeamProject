@@ -123,6 +123,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BidulgiMaster.cpp" />
+    <ClCompile Include="CashWalkGirl.cpp" />
     <ClCompile Include="ChurchLover.cpp" />
     <ClCompile Include="AngryHomeless.cpp" />
     <ClCompile Include="Danso.cpp" />
@@ -132,14 +134,20 @@
     <ClCompile Include="BattleSystem.cpp" />
     <ClCompile Include="DrunkenOjisang.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="JarbanGrandpa.cpp" />
     <ClCompile Include="JejusLover.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="ScreenDoorBreaker.cpp" />
+    <ClCompile Include="StreetDealer.cpp" />
+    <ClCompile Include="TiredBusinessMan.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AngryHomeless.h" />
     <ClInclude Include="BattleSystem.h" />
+    <ClInclude Include="BidulgiMaster.h" />
+    <ClInclude Include="CashWalkGirl.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="ChurchLover.h" />
     <ClInclude Include="Danso.h" />
@@ -148,8 +156,12 @@
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="DrunkenOjisang.h" />
+    <ClInclude Include="JarbanGrandpa.h" />
     <ClInclude Include="JejusLover.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="ScreenDoorBreaker.h" />
+    <ClInclude Include="StreetDealer.h" />
+    <ClInclude Include="TiredBusinessMan.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

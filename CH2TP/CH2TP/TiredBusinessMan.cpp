@@ -1,16 +1,16 @@
-#include "ChurchLover.h"
+#include "TiredBusinessMan.h"
 #include <iostream>
 
 using namespace std;
 
-ChurchLover::ChurchLover()
-    : Monster("Church Lover", 0, 0, 90, 70) // 기본 EXP 10, 골드 10
+TiredBusinessMan::TiredBusinessMan()
+    : Monster("TiredBusinessMan", 0, 0, 130, 100) // 기본 EXP 10, 골드 10
 {
-    level = 5;      // 레벨 1 고정
+    level = 7;      // 레벨 1 고정
     setStats();     // 체력·공격력 랜덤 설정
 }
 
-void ChurchLover::setStats()
+void TiredBusinessMan::setStats()
 {
     random_device rd;
     mt19937 gen(rd()); // 랜덤함수 엔진
@@ -23,12 +23,12 @@ void ChurchLover::setStats()
     attack = atkDist(gen);
 }
 
-void ChurchLover::StartText()
+void TiredBusinessMan::StartText()
 {
-    cout << "\033[31mChurchLover: Go Church. Go Heaven.\033[0m" << endl;
+    cout << "\033[31mTired BusinessMan: Kill me,,\033[0m" << endl;
 }
 
-void ChurchLover::DeadText()
+void TiredBusinessMan::DeadText()
 {
-    cout << "\033[31mChurchLover is DEAD!\033[0m" << endl;
+    cout << "\033[31mTired BusinessMan is DEAD!\033[0m" << endl;
 }

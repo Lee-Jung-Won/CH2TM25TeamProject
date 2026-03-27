@@ -4,9 +4,9 @@
 using namespace std;
 
 JejusLover::JejusLover()
-    : Monster("Jejus Lover", 0, 0, 10, 10) // 기본 EXP 10, 골드 10
+    : Monster("Jejus Lover", 0, 0, 90, 70) // 기본 EXP 10, 골드 10
 {
-    level = 1;      // 레벨 1 고정
+    level = 5;      // 레벨 1 고정
     setStats();     // 체력·공격력 랜덤 설정
 }
 
@@ -25,7 +25,7 @@ void JejusLover::setStats()
 
 void JejusLover::StartText()
 {
-    cout << "\033[31mJejusLover: Jejus Christ Amen-.\033[0m" << endl;
+    cout << "\033[31mJejusLover: Jejus Christ AAAAAmen-.\033[0m" << endl;
 }
 
 void JejusLover::DeadText()
