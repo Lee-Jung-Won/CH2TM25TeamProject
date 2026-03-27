@@ -136,22 +136,16 @@
     <ClCompile Include="BattleSystem.cpp" />
     <ClCompile Include="DrunkenOjisang.cpp" />
     <ClCompile Include="Item.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="JarbanGrandpa.cpp" />
     <ClCompile Include="JejusLover.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Character.cpp" />
-    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="ScreenDoorBreaker.cpp" />
     <ClCompile Include="StreetDealer.cpp" />
     <ClCompile Include="TiredBusinessMan.cpp" />
-=======
     <ClCompile Include="LoudSongGril.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="SmokingGuy.cpp" />
->>>>>>> monster
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AngryHomeless.h" />
@@ -168,18 +162,14 @@
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="DrunkenOjisang.h" />
-<<<<<<< HEAD
     <ClInclude Include="JarbanGrandpa.h" />
     <ClInclude Include="JejusLover.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="ScreenDoorBreaker.h" />
     <ClInclude Include="StreetDealer.h" />
     <ClInclude Include="TiredBusinessMan.h" />
-=======
     <ClInclude Include="LoudSongGril.h" />
-    <ClInclude Include="Monster.h" />
     <ClInclude Include="SmokingGuy.h" />
->>>>>>> monster
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
