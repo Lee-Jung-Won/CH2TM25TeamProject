@@ -45,6 +45,10 @@ void Character::setHealth(int newhp)
 {
     health = newhp;
 }
+int Character::getmaxHealth()
+{
+    return maxHealth;
+}
 int Character::getLevel() const
 {
     return level;
@@ -77,7 +81,7 @@ void Character::ShowStatus() const
     for (auto& i : inventory)
     {
         cntt++;
-        cout << cntt << ". " << setw(6) << i->getName().rank << "- " << i->getName().name
+        cout << cntt << ". [" << setw(6) << i->getName().rank << "]- " << i->getName().name
             << "... " << i->getstore() << "\t";
         if (cntt % 2 == 0)
         {
@@ -91,16 +95,22 @@ Character* Character::getInstance()
     return instance;
 }
 
+vector<Item*>* Character::getinventory()
+{
+    return &inventory;
+}
+
 void Character::addhpinventory(Item* it)
 {
     for (auto& i : inventory)
     {
-        if (i->getName() == it->getName())
+        if (i->getName() == it->getName()) //same name
         {
             i->setstore(i->getstore() + it->getstore());
             return;
         }
     }
+    //diffent name
     inventory.push_back(it);
 
     //sort.....
@@ -122,7 +132,7 @@ void Character::addweaponinventory(Item* it)
         inventory2.emplace_back(it);
         return;
     }
-    // ���� �̸��� �ִٸ� > ����� ������ ������ �ش��ּ�ĭ �� �����
+    
     for (auto& i : inventory2)
     {
         if (i->getName().name == it->getName().name)
@@ -147,6 +157,14 @@ void Character::useitem(int index)
     }
     inventory[index - 1]->use(instance);
 
+    if (inventory[index - 1]->getstore() <= 0)
+    {
+        delete inventory[index - 1];
+        inventory[index - 1] = nullptr;
+        auto it = inventory.begin();
+        inventory.erase(it + (index - 1));
+
+    }
 }
 
 void Character::GainExp(int inExp)//using word inExp for monster's drop exp
@@ -170,6 +188,11 @@ void Character::GainGold(int inGold)
 
     cout << "+ " << inGold << " GOLD" << endl;
 
+}
+
+int Character::getGold()
+{
+    return gold;
 }
 
 void Character::LevelUp()

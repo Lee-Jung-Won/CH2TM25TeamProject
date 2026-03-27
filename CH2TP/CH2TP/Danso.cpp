@@ -20,3 +20,8 @@ void Danso::use(Character* chr)
 {
 	chr->setattack(chr->getAttack() + dmg);
 }
+
+int Danso::getprice()
+{
+	return price;
+}

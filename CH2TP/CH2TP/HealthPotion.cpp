@@ -26,19 +26,46 @@ void HealthPotion::use(Character* chr)
         return;
     }
     healthRestore--;
-    //chr hpget, hpset func need
-    // hpgetter + each rank have diffenrent value(switch) * 50(exemple)
-    // set upline value
+
     if (totalname.rank == "Epic")
     {
+        int valuecompare = 0;
+        valuecompare = chr->getHealth() + 100 - chr->getmaxHealth();
+        if (valuecompare > 0)
+        {
+            chr->setHealth(chr->getHealth() + 100 - valuecompare);
+            return;
+        }
         chr->setHealth(chr->getHealth() + 100);
+        return;
     }
     else if(totalname.rank == "Rare")
     {
+        int valuecompare = 0;
+        valuecompare = chr->getHealth() + 50 - chr->getmaxHealth();
+        if (valuecompare > 0)
+        {
+            chr->setHealth(chr->getHealth() + 50 - valuecompare);
+            return;
+        }
         chr->setHealth(chr->getHealth() + 50);
+        return;
     }
     else if (totalname.rank == "Normal")
     {
+        int valuecompare = 0;
+        valuecompare = chr->getHealth() + 30 - chr->getmaxHealth();
+        if (valuecompare > 0)
+        {
+            chr->setHealth(chr->getHealth() + 30 - valuecompare);
+            return;
+        }
         chr->setHealth(chr->getHealth() + 30);
+        return;
     }
+}
+
+int HealthPotion::getprice()
+{
+    return price;
 }
