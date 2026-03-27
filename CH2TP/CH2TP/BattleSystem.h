@@ -7,6 +7,16 @@
 #include "AngryHomeless.h"
 #include "GiantBackpacker.h"
 #include "Deepkisscouple.h"
+#include "SmokingGuy.h"
+#include "LoudSongGril.h"
+#include "ChurchLover.h"
+#include "JejusLover.h"
+#include "CashwalkGirl.h"
+#include "StreetDealer.h"
+#include "BidulgiMaster.h"
+#include "TiredBusinessMan.h"
+#include "ScreenDoorBreaker.h"
+#include "JarbanGrandpa.h"
 #include <vector>
 
 class BattleSystem

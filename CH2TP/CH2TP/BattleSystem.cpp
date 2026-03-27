@@ -28,6 +28,41 @@ void BattleSystem::StartBattle(Character& player)
 
 	if (player.getLevel() >= 4 && player.getLevel() < 10)
 	{
+		monsters.push_back(new SmokingGuy());
+		monsters.push_back(new LoudSongGril());
+	}
+
+	if (player.getLevel() >= 5 && player.getLevel() < 10)
+	{
+		monsters.push_back(new ChurchLover());
+		monsters.push_back(new JejusLover());
+	}
+
+	if (player.getLevel() >= 6 && player.getLevel() < 10)
+	{
+		monsters.push_back(new CashWalkGirl());
+		monsters.push_back(new StreetDealer());
+	}
+
+	if (player.getLevel() >= 7 && player.getLevel() < 10)
+	{
+		monsters.push_back(new BidulgiMaster());
+		monsters.push_back(new TiredBusinessMan());
+	}
+
+	if (player.getLevel() >= 8 && player.getLevel() < 10)
+	{
+		monsters.push_back(new ScreenDoorBreaker());
+		monsters.push_back(new JarbanGranpa());
+	}
+
+	if (player.getLevel() >= 9 && player.getLevel() < 10)
+	{
+
+	}
+
+	if (player.getLevel() <= 10)
+	{
 
 	}
 
