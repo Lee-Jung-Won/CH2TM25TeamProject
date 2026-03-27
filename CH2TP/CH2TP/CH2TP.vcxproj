@@ -123,7 +123,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AngryHomeless.cpp" />
     <ClCompile Include="Danso.cpp" />
+    <ClCompile Include="DeepsleepMan.cpp" />
     <ClCompile Include="DrunkenWoman.cpp" />
     <ClCompile Include="HealthPotion.cpp" />
     <ClCompile Include="BattleSystem.cpp" />
@@ -134,9 +136,11 @@
     <ClCompile Include="Monster.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AngryHomeless.h" />
     <ClInclude Include="BattleSystem.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Danso.h" />
+    <ClInclude Include="DeepsleepMan.h" />
     <ClInclude Include="DrunkenWoman.h" />
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Item.h" />

@@ -56,7 +56,7 @@ void Character::takeDamage(const Character& attacker)
     if (health < 0) health = 0;
 
     cout << name << " takes " << damage << " damage from "
-        << attacker.getName() << "! Remaining HP: " << health << endl;
+        << attacker.getName() << "! Enemy Remaining HP: " << health << endl;
 }
 
 void Character::ShowStatus() const 
@@ -115,7 +115,7 @@ void Character::addweaponinventory(Item* it)
         it->use(instance);
         inventory2.emplace_back(it);
     }
-    // °°Àº ÀÌ¸§ÀÌ ÀÖ´Ù¸é > µî±ÞÀ» µûÁö°í ³ôÀ¸¸é ÇØ´çÁÖ¼ÒÄ­ °ª µ¤¾î¾²±â
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ > ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ö¼ï¿½Ä­ ï¿½ï¿½ ï¿½ï¿½ï¿½î¾²ï¿½ï¿½
     for (auto& i : inventory2)
     {
         if (i->getName().name == it->getName().name)

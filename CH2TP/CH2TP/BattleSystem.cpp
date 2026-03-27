@@ -8,14 +8,24 @@ void BattleSystem::StartBattle(Character& player)
 {
 	vector<Monster*> monsters;
 
-	if (player.getLevel() >= 1)
+	if (player.getLevel() >= 1 && player.getLevel() < 10)
 	{
 		monsters.push_back(new DrunkenOjisang());
 	}
 
-	if (player.getLevel() >= 1)
+	if (player.getLevel() >= 1 && player.getLevel() < 10)
 	{
 		monsters.push_back(new DrunkenWoman());
+	}
+
+	if (player.getLevel() >= 2 && player.getLevel() < 10)
+	{
+		monsters.push_back(new DeepsleepMan());
+	}
+
+	if (player.getLevel() >= 2 && player.getLevel() < 10)
+	{
+		monsters.push_back(new AngryHomeless());
 	}
 
 	random_device rd;
@@ -56,6 +66,9 @@ void BattleSystem::StartBattle(Character& player)
 			player.GainGold(inGold);
 
 			player.ShowStatus();
+
+			cout << "Press Enter to exit..." << endl;
+			cin.get();
 
 			break;
 		}
