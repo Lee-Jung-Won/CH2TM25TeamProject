@@ -15,7 +15,6 @@ int main() {
 
     HealthPotion hp(3); // start potion
     player.addhpinventory(&hp);
-
     DrunkenOjisang monster;
 
     while (true)
