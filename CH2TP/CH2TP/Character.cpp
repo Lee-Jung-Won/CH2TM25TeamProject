@@ -1,5 +1,6 @@
 #include "Character.h"
 #include <iostream>
+#include <iomanip>
 #include <algorithm>
 using namespace std;
 
@@ -68,15 +69,20 @@ void Character::ShowStatus() const
     cout << "Attack: " << attack << endl;
     cout << "EXP:    " << exp << " / " << maxExp << endl;
     cout << "GOLD:   " << gold << " G" << endl;
-    cout << "============================\n" << endl;
+    cout << "============================\n";
 
     //add inventory list print
     int cntt = 0;
+    cout << "********* INVENTORY *********" << endl;
     for (auto& i : inventory)
     {
         cntt++;
-        cout << cntt << ". " << i->getName().rank << "- " << i->getName().name
-            << "... " << i->getstore() << endl;
+        cout << cntt << ". " << setw(6) << i->getName().rank << "- " << i->getName().name
+            << "... " << i->getstore() << "\t";
+        if (cntt % 2 == 0)
+        {
+            cout << endl;
+        }
     }
 }
 
@@ -114,6 +120,7 @@ void Character::addweaponinventory(Item* it)
     {
         it->use(instance);
         inventory2.emplace_back(it);
+        return;
     }
     // ���� �̸��� �ִٸ� > ����� ������ ������ �ش��ּ�ĭ �� �����
     for (auto& i : inventory2)
@@ -122,6 +129,7 @@ void Character::addweaponinventory(Item* it)
         {
             if (GetRankPriority(i->getName().rank) < GetRankPriority(it->getName().rank))
             {
+                attack -= i->getstore();
                 i = it;
                 i->use(instance);
                 return;
@@ -132,12 +140,10 @@ void Character::addweaponinventory(Item* it)
 
 void Character::useitem(int index)
 {
-    // inventory of index = in-index
-    // character* need... > usefunc need Character*....
-    // >inventory[index]->use(character*) >> result : eachclass use-overriding...
+    // inventory1 potion use
     if ((index < 1) || (index > inventory.size()))
     {
-        return; // wrong index
+        return; // wrong index nonfunc
     }
     inventory[index - 1]->use(instance);
 
