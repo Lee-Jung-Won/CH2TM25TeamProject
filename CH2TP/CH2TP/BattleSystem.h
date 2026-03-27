@@ -5,6 +5,8 @@
 #include "DrunkenWoman.h"
 #include "DeepsleepMan.h"
 #include "AngryHomeless.h"
+#include "GiantBackpacker.h"
+#include "Deepkisscouple.h"
 #include <vector>
 
 class BattleSystem

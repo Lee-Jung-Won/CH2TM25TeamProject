@@ -11,21 +11,24 @@ void BattleSystem::StartBattle(Character& player)
 	if (player.getLevel() >= 1 && player.getLevel() < 10)
 	{
 		monsters.push_back(new DrunkenOjisang());
-	}
-
-	if (player.getLevel() >= 1 && player.getLevel() < 10)
-	{
 		monsters.push_back(new DrunkenWoman());
 	}
 
 	if (player.getLevel() >= 2 && player.getLevel() < 10)
 	{
 		monsters.push_back(new DeepsleepMan());
+		monsters.push_back(new AngryHomeless());
 	}
 
-	if (player.getLevel() >= 2 && player.getLevel() < 10)
+	if (player.getLevel() >= 3 && player.getLevel() < 10)
 	{
-		monsters.push_back(new AngryHomeless());
+		monsters.push_back(new GiantBackpacker());
+		monsters.push_back(new Deepkisscouple());
+	}
+
+	if (player.getLevel() >= 4 && player.getLevel() < 10)
+	{
+
 	}
 
 	random_device rd;
@@ -89,5 +92,11 @@ void BattleSystem::StartBattle(Character& player)
 
 			exit(0); // program exit
 		}
-	}	
+	}
+
+	for (Monster* m : monsters) // 메모리 릭 방지
+	{
+		delete m;
+	}
+	monsters.clear();
 }

@@ -18,8 +18,13 @@ int main() {
     player.addhpinventory(&hp); // start potion input
     player.addweaponinventory(&weapon); // start weapon input
 
+<<<<<<< HEAD
     player.ShowStatus();
 
+=======
+    HealthPotion hp(3); // start potion
+    player.addhpinventory(&hp);
+>>>>>>> monster
     DrunkenOjisang monster;
 
     while (true)
