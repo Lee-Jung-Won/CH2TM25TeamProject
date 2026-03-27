@@ -186,9 +186,9 @@ void Character::LevelUp()
 
     attack += 20;
 
-    cout << "CurrentLevel is " << level << endl;
+    cout << "*********************LEVEL UP!********************* "<< endl;
     
-    cout << "For Next Level, You need " << maxExp << "EXP" << endl;
+    cout << "Current Level is " << level << endl;
 
 
 }
