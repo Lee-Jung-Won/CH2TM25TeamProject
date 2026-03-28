@@ -55,6 +55,7 @@ public:
 
     void GainGold(int inGold);
     int getGold();
+    void setGold(int newGold);
 
     void LevelUp();
 

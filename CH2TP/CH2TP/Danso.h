@@ -18,22 +18,22 @@ public:			// plastic danso 30dmg
 		price = 100;
 			if (r == "Silver")
 			{
-				dmg = 50;
+				dmg = 60;
 				price = 200;
 			}
 			else if (r == "Gold")
 			{
-				dmg = 70;
+				dmg = 120;
 				price = 300;
 			}
 			else if (r == "Platinum")
 			{
-				dmg = 90;
+				dmg = 200;
 				price = 400;
 			}
 			else if (r == "Diamond")
 			{
-				dmg = 120;
+				dmg = 300;
 				price = 500;
 			}
 	}

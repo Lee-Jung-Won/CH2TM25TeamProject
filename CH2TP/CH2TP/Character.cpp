@@ -14,7 +14,7 @@ Character::Character(const string& characterName, bool showMessage)
     exp = 0;
     maxExp = 100;
     instance = this;
-    gold = 0;
+    gold = 50;
 
     if (showMessage) 
         cout << "Welcome, " << name << "! Your adventure begins." << endl;
@@ -140,6 +140,7 @@ void Character::addweaponinventory(Item* it)
             if (GetRankPriority(i->getName().rank) < GetRankPriority(it->getName().rank))
             {
                 attack -= i->getstore();
+                delete i;
                 i = it;
                 i->use(instance);
                 return;
@@ -193,6 +194,11 @@ void Character::GainGold(int inGold)
 int Character::getGold()
 {
     return gold;
+}
+
+void Character::setGold(int newGold)
+{
+    gold = newGold;
 }
 
 void Character::LevelUp()

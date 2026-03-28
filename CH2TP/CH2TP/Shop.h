@@ -25,7 +25,7 @@ private:
 public:
 	Shop();
 	~Shop();
-	void printshoplist();
+	void openshop(Character& who);
 	void buy(int num, Character& chr);
 };
 
