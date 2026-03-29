@@ -14,6 +14,20 @@ int main() {
 
     Character player(playerName);
     Shop sshhoopp;
+    //int cnum = 0;
+    //int out = 0;
+    //do
+    //{
+    //    out = sshhoopp.openshop(player);
+    //    //if (out == 3)
+    //    //{
+    //    //    break;
+    //    //}
+    //    cout << "Choose num :";
+    //    cin >> cnum;
+    //    sshhoopp.buy(cnum, player);
+    //    player.ShowStatus();
+    //} while (1);
 
     player.ShowStatus();
 

@@ -26,6 +26,8 @@ protected:
 public:
 
     // put name to initialize
+    void makepotion(HealthPotion& getpotion);
+    void makeweapon(Danso& getweapon);
     Character* getInstance();
     vector<Item*>* getinventory();
     void addhpinventory(Item* it);

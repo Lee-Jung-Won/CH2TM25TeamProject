@@ -1,10 +1,11 @@
 #pragma once
 #include <string>
-
+#include <vector>
+class Item;
 class HealthPotion;
 class Danso;
-
 class Character;
+
 using namespace std;
 class Shop
 {
@@ -15,17 +16,18 @@ private:
 	HealthPotion* SNHP;
 	HealthPotion* SRHP;
 	HealthPotion* SEHP;
-
-	Danso* SLDANSO;
-	Danso* SSDANSO;
-	Danso* SGDANSO;
-	Danso* SPDANSO;
-	Danso* SDDANSO;
+	
+	std::vector<Item*> shopsobiinven;
+	//Danso* SLDANSO;
+	//Danso* SSDANSO;
+	//Danso* SGDANSO;
+	//Danso* SPDANSO;
+	//Danso* SDDANSO;
 
 public:
 	Shop();
 	~Shop();
-	void openshop(Character& who);
+	int openshop(Character& who);
 	void buy(int num, Character& chr);
 };
 
