@@ -174,7 +174,7 @@ void BattleSystem::StartBattle(Character& player)
 				{
 					system("cls");
 					cout << "\033[34mPeace has finally come to Line 1...\033[0m" << endl;
-					cout << "\033[34m" << R"(
+					cout << "\033[33m" << R"(
  _____   ___  ___  ___ _____   _____  _      _____   ___  ______  _  _  _ 
 |  __ \ / _ \ |  \/  ||  ___| /  __ \| |    |  ___| / _ \ | ___ \| || || |
 | |  \// /_\ \| .  . || |__   | /  \/| |    | |__  / /_\ \| |_/ /| || || |
@@ -218,8 +218,17 @@ void BattleSystem::StartBattle(Character& player)
 
 			if (player.getHealth() <= 0) // player die
 			{
-				cout << player.getName() << "is Dead..." << endl;
-				cout << "\033[31m\n=== GAME OVER ===\033[0m\n" << endl;
+				cout << player.getName() << " is Dead..." << endl;
+				cout << "\033[31m" << R"(
+ _____   ___  ___  ___ _____   _____  _   _  _____ ______          
+|  __ \ / _ \ |  \/  ||  ___| |  _  || | | ||  ___|| ___ \         
+| |  \// /_\ \| .  . || |__   | | | || | | || |__  | |_/ /         
+| | __ |  _  || |\/| ||  __|  | | | || | | ||  __| |    /          
+| |_\ \| | | || |  | || |___  \ \_/ /\ \_/ /| |___ | |\ \  _  _  _ 
+ \____/\_| |_/\_|  |_/\____/   \___/  \___/ \____/ \_| \_|(_)(_)(_)
+                                                                   
+                                                                   
+				)" << "\033[0m" << endl;
 				cout << "Press Enter to exit..." << endl;
 				cin.get();
 
