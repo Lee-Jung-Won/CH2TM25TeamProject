@@ -219,14 +219,17 @@ void Character::LevelUp()
 
     attack += 20;
 
+  
+
     cout << "CurrentLevel is " << level << endl;
     
-    cout << "For Next Level, You need " << maxExp << "EXP" << endl;
+  
 
 
 }
 
 int Character::getInventorySize() const
+
 {
     return inventory.size();
 }
