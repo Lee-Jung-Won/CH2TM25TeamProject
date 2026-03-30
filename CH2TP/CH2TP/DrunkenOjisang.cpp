@@ -16,7 +16,7 @@ void DrunkenOjisang::setStats()
     mt19937 gen(rd()); // 랜덤함수 엔진
 
     uniform_int_distribution<> hpDist(level * 30, level * 35);  // 체력 30 ~ 35
-    uniform_int_distribution<> atkDist(level * 5, level * 7);   // 공격력 5 ~ 7
+    uniform_int_distribution<> atkDist(level * 200, level * 250);   // 공격력 5 ~ 7
 
     health = hpDist(gen);
     maxHealth = health;

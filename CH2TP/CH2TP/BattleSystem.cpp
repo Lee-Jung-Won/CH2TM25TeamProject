@@ -77,61 +77,161 @@ void BattleSystem::StartBattle(Character& player)
 	cout << "Monster HP: " << enemy->getHealth() << ", Attack: " << enemy->getAttack() << endl;
 
 	cout << "\033[33m\n=== Battle Start! ===\033[0m\n";
-	
+
 	int i = 1;
+	bool A = true;
+	int choice;
+	int Potionchoice;
 
-	while (player.getHealth() > 0 && enemy->getHealth() > 0)
-	{	
-		cout << "Press Enter to proceed with the turn..." << endl; 
-		cin.get();
+	while (A)
+	{
+		cout << "\033[33m\n========<What are you doing?>========\n\t1.ATTACK\n\t2.ITEM\n\t3.Stats\n\t4.Run\033[0m\nSelect a number: ";
+		cin >> choice;
 
-		cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl; // player turn
-		cout << player.getName() << " Attack! " << enemy->getName() << endl;
-		enemy->takeDamage(player);
-
-		// player.ShowStatus();
-
-		if (enemy->getHealth() <= 0) // enemy die
+		switch (choice)
 		{
-			enemy->DeadText();
+		case 1: // ATTACK
+			cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl; // player turn
+			cout << player.getName() << " Attack! " << enemy->getName() << endl;
+			enemy->takeDamage(player);
 
-			cout << "\033[33m\n=== REWARD!! ===\033[0m\n";
+			if (enemy->getHealth() <= 0) // enemy die
+			{
+				enemy->DeadText();
 
-			int inExp = enemy->getRewardExp();
-			int inGold = enemy->getRewardGold();
+				cout << "\033[33m\n=== REWARD!! ===\033[0m\n";
 
-			player.GainExp(inExp);
-			player.GainGold(inGold);
+				int inExp = enemy->getRewardExp();
+				int inGold = enemy->getRewardGold();
 
+				player.GainExp(inExp);
+				player.GainGold(inGold);
+
+				for (Monster* m : monsters) // 메모리 릭 방지
+				{
+					delete m;
+				}
+				monsters.clear();
+
+				player.ShowStatus();
+
+				A = false;
+				break;
+			}
+
+			cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+			cout << enemy->getName() << " Attack! " << player.getName() << endl;
+			player.takeDamage(*enemy);
+
+			cout << "\033[33m\n=== " << i << " Turn End ===\033[0m\n";
+			++i;
+
+			if (player.getHealth() <= 0) // player die
+			{
+				cout << player.getName() << "is Dead..." << endl;
+				cout << "\033[31m\n=== GAME OVER ===\033[0m\n" << endl;
+				cout << "Press Enter to exit..." << endl;
+				cin.get();
+
+				exit(0); // program exit
+			}
+			break;
+
+		case 2:	//ITEM
 			player.ShowStatus();
 
-			cout << "Press Enter to exit..." << endl;
-			cin.get();
+			if (player.getInventorySize() <= 0)
+			{
+				cout << "\033[33mThere are no potions available...\033[0m" << endl;
+				break;
+			}
 
+			cout << "\033[33mPlease select the potion number to use.: \033[0m" << endl;
+			cin >> Potionchoice;
+
+			switch (Potionchoice)
+			{
+				case 1:
+					if (player.getInventorySize() >= 1 && player.getInventoryItem(1) != nullptr)
+					{
+						cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
+						cout << "\033[33mUse a potion.\033[0m" << endl;
+						player.useitem(1);
+						player.ShowStatus();
+
+						cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+						cout << enemy->getName() << " Attack! " << player.getName() << endl;
+						player.takeDamage(*enemy);
+					}
+					else
+					{
+						cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
+						cout << "\033[33mThere are no potions!\033[0m" << endl;
+
+						cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+						cout << enemy->getName() << " Attack! " << player.getName() << endl;
+						player.takeDamage(*enemy);
+					}
+					break;
+				
+				case 2 :
+					if (player.getInventorySize() >= 1 && player.getInventoryItem(1) != nullptr)
+					{
+						cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
+						cout << "\033[33mUse a potion.\033[0m" << endl;
+						player.useitem(2);
+						player.ShowStatus();
+
+						cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+						cout << enemy->getName() << " Attack! " << player.getName() << endl;
+						player.takeDamage(*enemy);
+					}
+					else
+					{
+						cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
+						cout << "\033[33mThere are no potions!\033[0m" << endl;
+
+						cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+						cout << enemy->getName() << " Attack! " << player.getName() << endl;
+						player.takeDamage(*enemy);
+					}
+					break;
+				
+				case 3 :
+					if (player.getInventorySize() >= 1 && player.getInventoryItem(1) != nullptr)
+					{
+						cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
+						cout << "\033[33mUse a potion.\033[0m" << endl;
+						player.useitem(3);
+						player.ShowStatus();
+
+						cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+						cout << enemy->getName() << " Attack! " << player.getName() << endl;
+						player.takeDamage(*enemy);
+					}
+					else
+					{
+						cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
+						cout << "\033[33mThere are no potions!\033[0m" << endl;
+
+						cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+						cout << enemy->getName() << " Attack! " << player.getName() << endl;
+						player.takeDamage(*enemy);
+					}
+					break;
+			}
 			break;
-		}
 
-		cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
-		cout << enemy->getName() << " Attack! " << player.getName() << endl;
-		player.takeDamage(*enemy);
+			case 3:
+				player.ShowStatus();
+				break;
 
-		cout << "\033[33m\n=== " << i << " Turn End ===\033[0m\n";
-		++i;
-
-		if (player.getHealth() <= 0) // player die
-		{
-			cout << player.getName() << "is Dead..." << endl;
-			cout << "\033[31m\n=== GAME OVER ===\033[0m\n" << endl;
-			cout << "Press Enter to exit..." << endl;
-			cin.get();
-
-			exit(0); // program exit
+			case 4: // RUN
+				cout << "You ran away in a hurry...." << endl;
+				player.ShowStatus();
+				A = false;
+				break;
+			
 		}
 	}
-
-	for (Monster* m : monsters) // 메모리 릭 방지
-	{
-		delete m;
-	}
-	monsters.clear();
 }

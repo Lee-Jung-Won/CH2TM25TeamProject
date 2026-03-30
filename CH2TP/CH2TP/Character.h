@@ -62,4 +62,7 @@ public:
     void LevelUp();
 
     virtual ~Character() {}
+
+    int getInventorySize() const;   
+    Item* getInventoryItem(int index) const;
 };

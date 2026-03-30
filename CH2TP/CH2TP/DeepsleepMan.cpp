@@ -16,7 +16,7 @@ void DeepsleepMan::setstats()
 	mt19937 gen(rd());
 
 	uniform_int_distribution<> hpDist(level * 30, level * 40);
-	uniform_int_distribution<> atkDist(level * 5, level * 8);
+	uniform_int_distribution<> atkDist(level * 40, level * 50);
 
 	health = hpDist(gen);
 	maxHealth = health;

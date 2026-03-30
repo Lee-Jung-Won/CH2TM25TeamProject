@@ -8,7 +8,7 @@ Character::Character(const string& characterName, bool showMessage)
 {
     name = characterName;
     level = 1;
-    maxHealth = 2000;
+    maxHealth = 200;
     health = 200;
     attack = 30;
     exp = 0;
@@ -227,4 +227,16 @@ void Character::LevelUp()
     cout << "For Next Level, You need " << maxExp << "EXP" << endl;
 
 
+}
+
+int Character::getInventorySize() const
+{
+    return inventory.size();
+}
+
+Item* Character::getInventoryItem(int index) const
+{
+    if (index < 1 || index > inventory.size())
+        return nullptr;
+    return inventory[index - 1];
 }
