@@ -17,6 +17,7 @@
 #include "TiredBusinessMan.h"
 #include "ScreenDoorBreaker.h"
 #include "JarbanGrandpa.h"
+#include "Logger.h"
 #include <vector>
 
 class BattleSystem

@@ -106,6 +106,7 @@ void BattleSystem::StartBattle(Character& player)
 			player.ShowStatus();
 
 			cout << "Press Enter to exit..." << endl;
+
 			cin.get();
 
 			break;

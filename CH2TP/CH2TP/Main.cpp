@@ -3,6 +3,7 @@
 #include "Shop.h"
 #include "DrunkenOjisang.h"
 #include "BattleSystem.h"
+#include "Logger.h"
 
 using namespace std;
 
