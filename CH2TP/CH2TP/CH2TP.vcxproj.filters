@@ -24,6 +24,7 @@
     <ClCompile Include="Deepkisscouple.cpp" />
     <ClCompile Include="SmokingGuy.cpp" />
     <ClCompile Include="LoudSongGril.cpp" />
+    <ClCompile Include="Shop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BattleSystem.h" />
@@ -48,5 +49,6 @@
     <ClInclude Include="Deepkisscouple.h" />
     <ClInclude Include="SmokingGuy.h" />
     <ClInclude Include="LoudSongGril.h" />
+    <ClInclude Include="Shop.h" />
   </ItemGroup>
 </Project>

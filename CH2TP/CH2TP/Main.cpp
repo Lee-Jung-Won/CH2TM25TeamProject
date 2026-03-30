@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Character.h"
+#include "Shop.h"
 #include "DrunkenOjisang.h"
 #include "BattleSystem.h"
 
@@ -12,15 +13,10 @@ int main() {
     getline(cin, playerName);
 
     Character player(playerName);
-    // hp( many, "string" ) ====== weapon("string")
-    HealthPotion hp(3); // start potion - Normal = +30 Rare = +50 Epic = +100
-    Danso weapon; // "Plastic" , "Silver" , "Gold" , "Platinum" , Diamond"
-    player.addhpinventory(&hp); // start potion input
-    player.addweaponinventory(&weapon); // start weapon input
+    Shop sshhoopp;
 
     player.ShowStatus();
 
-    player.addhpinventory(&hp);
     DrunkenOjisang monster;
 
     while (true)
@@ -32,7 +28,27 @@ int main() {
         {
         case 1: BattleSystem::StartBattle(player); break;
 
-        case 2: cout << "Store"; break;
+        case 2:
+            int cnum = 0;
+            int out = 0;
+            do
+            {
+                out = sshhoopp.openshop(player);
+                if (out == 3)
+                {
+                    break;
+                }
+                cout << "Choose num :";
+                cin >> cnum;
+                if (cnum == 0)
+                {
+                    system("CLS");
+                    continue;
+                }
+                sshhoopp.buy(cnum, player);
+                //player.ShowStatus();
+            } while (1);
+            break;
         }
     }
 

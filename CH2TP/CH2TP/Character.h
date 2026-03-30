@@ -26,7 +26,10 @@ protected:
 public:
 
     // put name to initialize
+    void makepotion(HealthPotion& getpotion);
+    void makeweapon(Danso& getweapon);
     Character* getInstance();
+    vector<Item*>* getinventory();
     void addhpinventory(Item* it);
     void addweaponinventory(Item* it);
     void useitem(int index);
@@ -44,6 +47,8 @@ public:
     int getHealth() const;
     void setHealth(int newhp);
 
+    int getmaxHealth();
+
     void ShowStatus() const;
 
     int getLevel() const;
@@ -51,6 +56,8 @@ public:
     void GainExp(int inExp);
 
     void GainGold(int inGold);
+    int getGold();
+    void setGold(int newGold);
 
     void LevelUp();
 
