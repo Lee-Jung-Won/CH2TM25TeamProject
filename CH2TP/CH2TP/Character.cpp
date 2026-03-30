@@ -77,7 +77,7 @@ void Character::ShowStatus() const
 
     //add inventory list print
     int cntt = 0;
-    cout << "********* INVENTORY *********" << endl;
+    cout << "----------==========********* INVENTORY *********=========----------" << endl;
     for (auto& i : inventory)
     {
         cntt++;
@@ -88,6 +88,8 @@ void Character::ShowStatus() const
             cout << endl;
         }
     }
+    cout << endl;
+    cout << "----------==========********* --------- *********=========----------" << endl;
 }
 
 void Character::makepotion(HealthPotion& getpotion)
@@ -258,7 +260,7 @@ void Character::setGold(int newGold)
 
 void Character::LevelUp()
 {
-
+    // cout
 
     level++;
 

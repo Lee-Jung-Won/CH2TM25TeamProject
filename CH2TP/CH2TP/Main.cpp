@@ -14,20 +14,6 @@ int main() {
 
     Character player(playerName);
     Shop sshhoopp;
-    //int cnum = 0;
-    //int out = 0;
-    //do
-    //{
-    //    out = sshhoopp.openshop(player);
-    //    //if (out == 3)
-    //    //{
-    //    //    break;
-    //    //}
-    //    cout << "Choose num :";
-    //    cin >> cnum;
-    //    sshhoopp.buy(cnum, player);
-    //    player.ShowStatus();
-    //} while (1);
 
     player.ShowStatus();
 
@@ -42,7 +28,27 @@ int main() {
         {
         case 1: BattleSystem::StartBattle(player); break;
 
-        case 2: cout << "Store"; break;
+        case 2:
+            int cnum = 0;
+            int out = 0;
+            do
+            {
+                out = sshhoopp.openshop(player);
+                if (out == 3)
+                {
+                    break;
+                }
+                cout << "Choose num :";
+                cin >> cnum;
+                if (cnum == 0)
+                {
+                    system("CLS");
+                    continue;
+                }
+                sshhoopp.buy(cnum, player);
+                //player.ShowStatus();
+            } while (1);
+            break;
         }
     }
 

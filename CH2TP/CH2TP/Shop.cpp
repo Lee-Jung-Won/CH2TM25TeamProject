@@ -1,6 +1,8 @@
 #include "Shop.h"
 #include <iostream>
 #include "Character.h"
+#include <Windows.h>
+#include <iomanip>
 static int chosenum = 0;
 Shop::Shop()
 {
@@ -76,11 +78,12 @@ int Shop::openshop(Character& who)
 
 	cout << "Choose number you want to go... : ";
 	cin >> chosenum;
+	system("CLS");
 	if (chosenum == 1)
 	{
 		cout << "=======================================================================================" << endl;
-		cout << "=============================------------------------------============================" << endl;
-		cout << "========================== <<  Potion               Store  >> =========================" << endl;
+		cout << "===========================------------------------------==============================" << endl;
+		cout << "======================== <<  Potion               Store  >> ===========================" << endl;
 		cout << "=============================------------------------------============================" << endl;
 		cout << "==========                1. HP-Potion(Normal) ::  " << shopsobiinven[0]->getprice() << "G...(" << shopsobiinven[0]->getstore() << ")                ==========" << endl;
 		cout << "=======================================================================================" << endl;
@@ -89,7 +92,7 @@ int Shop::openshop(Character& who)
 		cout << "==========                3. HP-Potion( Epic ) :: " << shopsobiinven[2]->getprice() << "G...(" << shopsobiinven[2]->getstore() << ")                ==========" << endl;
 		cout << "=======================================================================================" << endl;
 		cout << "---------------------------------------------------------------------------------------" << endl;
-		cout << "MoneyYouHave : " << who.getGold() << "G" << endl;
+		cout << "MoneyYouHave : " << who.getGold() << "G" << "                                                           0. Back" << endl;
 		cout << "---------------------------------------------------------------------------------------" << endl;
 
 	}
@@ -110,7 +113,7 @@ int Shop::openshop(Character& who)
 		cout << "=======                    5. Diamond Danso :: 500G (+300dmg)                   =======" << endl;
 		cout << "=======================================================================================" << endl;
 		cout << "---------------------------------------------------------------------------------------" << endl;
-		cout << "MoneyYouHave : " << who.getGold() << "G" << endl;
+		cout << "MoneyYouHave : " << who.getGold() << "G" << "                                                           0. Back" << endl;
 		cout << "---------------------------------------------------------------------------------------" << endl;
 
 	}
@@ -123,6 +126,22 @@ int Shop::openshop(Character& who)
 		cout << "=======================================================================================" << endl;
 		cout << endl;
 		chosenum = 3;
+
+		int cntt = 0;
+		cout << "----------==========********* INVENTORY *********=========----------" << endl;
+		for (auto& i : *(who.getinventory()))
+		{
+			cntt++;
+			cout << cntt << ". [" << left << setw(6) << i->getName().rank << "]- " << i->getName().name
+				<< "... " << i->getstore() << "\t";
+			if (cntt % 2 == 0)
+			{
+				cout << endl;
+			}
+		}
+		cout << endl;
+		cout << "----------==========********* --------- *********=========----------" << endl;
+
 	}
 	return chosenum;
 }
