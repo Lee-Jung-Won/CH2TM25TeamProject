@@ -22,5 +22,7 @@ public:
 
     bool canAppear(int playerLevel) const;
 
+    virtual void BattleText() {}
+
     virtual ~Monster() {}
 };

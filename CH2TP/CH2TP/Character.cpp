@@ -7,14 +7,14 @@ using namespace std;
 Character::Character(const string& characterName, bool showMessage) 
 {
     name = characterName;
-    level = 1;
-    maxHealth = 200;
-    health = 200;
-    attack = 30;
+    level = 10;
+    maxHealth = 2000;
+    health = 2000;
+    attack = 300;
     exp = 0;
     maxExp = 100;
     instance = this;
-    gold = 5000;
+    gold = 0;
 
     if (showMessage) 
         cout << "Welcome, " << name << "! Your adventure begins." << endl;
@@ -59,9 +59,6 @@ void Character::takeDamage(const Character& attacker)
     int damage = attacker.getAttack();
     health -= damage;
     if (health < 0) health = 0;
-
-    cout << name << " takes " << damage << " damage from "
-        << attacker.getName() << "! Enemy Remaining HP: " << health << endl;
 }
 
 void Character::ShowStatus() const 

@@ -24,7 +24,7 @@ void BattleSystem::StartBattle(Character& player)
 	{
 		monsters.push_back(new GiantBackpacker());
 		monsters.push_back(new Deepkisscouple());
-	}
+	}	
 
 	if (player.getLevel() >= 4 && player.getLevel() < 10)
 	{
@@ -83,6 +83,7 @@ void BattleSystem::StartBattle(Character& player)
 	bool A = true;
 	int choice;
 	int Potionchoice;
+	Logger logger;
 
 	while (A)
 	{
@@ -94,8 +95,10 @@ void BattleSystem::StartBattle(Character& player)
 		case 1: // ATTACK
 			system("cls");
 			cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl; // player turn
-			cout << player.getName() << " Attack! " << enemy->getName() << endl;
 			enemy->takeDamage(player);
+			logger.addLog(LogType::Attack, "\033[32m" + player.getName() + " attacks " + enemy->getName() + "!\033[0m");
+			logger.addLog(LogType::Damage, "\033[32m" + enemy->getName() + " takes " + std::to_string(player.getAttack()) + " damage\033[0m");
+			logger.addLog(LogType::Damage, "\033[31m" + enemy->getName() + "'s remaining HP: " + std::to_string(enemy->getHealth()) + "\033[0m");
 
 			if (enemy->getHealth() <= 0) // enemy die
 			{
@@ -108,6 +111,30 @@ void BattleSystem::StartBattle(Character& player)
 
 				player.GainExp(inExp);
 				player.GainGold(inGold);
+
+				if (player.getLevel() >= 10)
+				{
+					system("cls");
+					cout << "\033[34mPeace has finally come to Line 1...\033[0m" << endl;
+					cout << "\033[34m" << R"(
+ _____   ___  ___  ___ _____   _____  _      _____   ___  ______  _  _  _ 
+|  __ \ / _ \ |  \/  ||  ___| /  __ \| |    |  ___| / _ \ | ___ \| || || |
+| |  \// /_\ \| .  . || |__   | /  \/| |    | |__  / /_\ \| |_/ /| || || |
+| | __ |  _  || |\/| ||  __|  | |    | |    |  __| |  _  ||    / | || || |
+| |_\ \| | | || |  | || |___  | \__/\| |____| |___ | | | || |\ \ |_||_||_|
+ \____/\_| |_/\_|  |_/\____/   \____/\_____/\____/ \_| |_/\_| \_|(_)(_)(_)
+					)" << "\033[0m" << endl;
+					cout << "Press Enter to exit..." << endl;
+					cin.get();
+
+					for (Monster* m : monsters) // 메모리 릭 방지
+					{
+						delete m;
+					}
+					monsters.clear();
+
+					exit(0);
+				}
 
 				for (Monster* m : monsters) // 메모리 릭 방지
 				{
@@ -122,8 +149,11 @@ void BattleSystem::StartBattle(Character& player)
 			}
 
 			cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
-			cout << enemy->getName() << " Attack! " << player.getName() << endl;
 			player.takeDamage(*enemy);
+			enemy->BattleText();
+			logger.addLog(LogType::Attack, "\033[31m" + enemy->getName() + " attacks " + player.getName() + "!\033[0m");
+			logger.addLog(LogType::Damage, "\033[31m" + player.getName() + " takes " + std::to_string(enemy->getAttack()) + " damage\033[0m");
+			logger.addLog(LogType::Damage, "\033[32m" + player.getName() + "'s remaining HP: " + std::to_string(player.getHealth()) + "\033[0m");
 
 			cout << "\033[33m\n=== " << i << " Turn End ===\033[0m\n";
 			++i;
@@ -157,88 +187,118 @@ void BattleSystem::StartBattle(Character& player)
 
 			switch (Potionchoice)
 			{
-				case 1:
-					if (player.getInventorySize() >= 1 && player.getInventoryItem(1) != nullptr)
-					{
-						cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
-						cout << "\033[33mUse a potion.\033[0m" << endl;
-						player.useitem(1);
-						player.ShowStatus();
+			case 1:
+				if (player.getInventorySize() >= 1 && player.getInventoryItem(1) != nullptr)
+				{
+					cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
+					cout << "\033[33mUse a potion.\033[0m" << endl;
+					player.useitem(1);
+					player.ShowStatus();
 
-						cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
-						cout << enemy->getName() << " Attack! " << player.getName() << endl;
-						player.takeDamage(*enemy);
-					}
-					else
-					{
-						cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
-						cout << "\033[33mThere are no potions!\033[0m" << endl;
+					cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+					player.takeDamage(*enemy);
+					logger.addLog(LogType::Attack, "\033[31m" + enemy->getName() + " attacks " + player.getName() + "!\033[0m");
+					logger.addLog(LogType::Damage, "\033[31m" + player.getName() + " takes " + std::to_string(enemy->getAttack()) + " damage\033[0m");
+					logger.addLog(LogType::Damage, "\033[32m" + player.getName() + "'s remaining HP: " + std::to_string(player.getHealth()) + "\033[0m");
 
-						cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
-						cout << enemy->getName() << " Attack! " << player.getName() << endl;
-						player.takeDamage(*enemy);
-					}
-					break;
-				
-				case 2 :
-					if (player.getInventorySize() >= 1 && player.getInventoryItem(1) != nullptr)
-					{
-						cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
-						cout << "\033[33mUse a potion.\033[0m" << endl;
-						player.useitem(2);
-						player.ShowStatus();
+					cout << "\033[33m\n=== " << i << " Turn End ===\033[0m\n";
+					++i;
+				}
+				else
+				{
+					cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
+					cout << "\033[33mThere are no potions!\033[0m" << endl;
 
-						cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
-						cout << enemy->getName() << " Attack! " << player.getName() << endl;
-						player.takeDamage(*enemy);
-					}
-					else
-					{
-						cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
-						cout << "\033[33mThere are no potions!\033[0m" << endl;
+					cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+					player.takeDamage(*enemy);
+					logger.addLog(LogType::Attack, "\033[31m" + enemy->getName() + " attacks " + player.getName() + "!\033[0m");
+					logger.addLog(LogType::Damage, "\033[31m" + player.getName() + " takes " + std::to_string(enemy->getAttack()) + " damage\033[0m");
+					logger.addLog(LogType::Damage, "\033[32m" + player.getName() + "'s remaining HP: " + std::to_string(player.getHealth()) + "\033[0m");
 
-						cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
-						cout << enemy->getName() << " Attack! " << player.getName() << endl;
-						player.takeDamage(*enemy);
-					}
-					break;
-				
-				case 3 :
-					if (player.getInventorySize() >= 1 && player.getInventoryItem(1) != nullptr)
-					{
-						cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
-						cout << "\033[33mUse a potion.\033[0m" << endl;
-						player.useitem(3);
-						player.ShowStatus();
+					cout << "\033[33m\n=== " << i << " Turn End ===\033[0m\n";
+					++i;
+				}
+				break;
 
-						cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
-						cout << enemy->getName() << " Attack! " << player.getName() << endl;
-						player.takeDamage(*enemy);
-					}
-					else
-					{
-						cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
-						cout << "\033[33mThere are no potions!\033[0m" << endl;
+			case 2:
+				if (player.getInventorySize() >= 1 && player.getInventoryItem(1) != nullptr)
+				{
+					cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
+					cout << "\033[33mUse a potion.\033[0m" << endl;
+					player.useitem(2);
+					player.ShowStatus();
 
-						cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
-						cout << enemy->getName() << " Attack! " << player.getName() << endl;
-						player.takeDamage(*enemy);
-					}
-					break;
+					cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+					player.takeDamage(*enemy);
+					logger.addLog(LogType::Attack, "\033[31m" + enemy->getName() + " attacks " + player.getName() + "!\033[0m");
+					logger.addLog(LogType::Damage, "\033[31m" + player.getName() + " takes " + std::to_string(enemy->getAttack()) + " damage\033[0m");
+					logger.addLog(LogType::Damage, "\033[32m" + player.getName() + "'s remaining HP: " + std::to_string(player.getHealth()) + "\033[0m");
+
+					cout << "\033[33m\n=== " << i << " Turn End ===\033[0m\n";
+					++i;
+				}
+				else
+				{
+					cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
+					cout << "\033[33mThere are no potions!\033[0m" << endl;
+
+					cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+					player.takeDamage(*enemy);
+					logger.addLog(LogType::Attack, "\033[31m" + enemy->getName() + " attacks " + player.getName() + "!\033[0m");
+					logger.addLog(LogType::Damage, "\033[31m" + player.getName() + " takes " + std::to_string(enemy->getAttack()) + " damage\033[0m");
+					logger.addLog(LogType::Damage, "\033[32m" + player.getName() + "'s remaining HP: " + std::to_string(player.getHealth()) + "\033[0m");
+
+					cout << "\033[33m\n=== " << i << " Turn End ===\033[0m\n";
+					++i;
+				}
+				break;
+
+			case 3:
+				if (player.getInventorySize() >= 1 && player.getInventoryItem(1) != nullptr)
+				{
+					cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
+					cout << "\033[33mUse a potion.\033[0m" << endl;
+					player.useitem(3);
+					player.ShowStatus();
+
+					cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+					player.takeDamage(*enemy);
+					logger.addLog(LogType::Attack, "\033[31m" + enemy->getName() + " attacks " + player.getName() + "!\033[0m");
+					logger.addLog(LogType::Damage, "\033[31m" + player.getName() + " takes " + std::to_string(enemy->getAttack()) + " damage\033[0m");
+					logger.addLog(LogType::Damage, "\033[32m" + player.getName() + "'s remaining HP: " + std::to_string(player.getHealth()) + "\033[0m");
+
+					cout << "\033[33m\n=== " << i << " Turn End ===\033[0m\n";
+					++i;
+				}
+				else
+				{
+					cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl;
+					cout << "\033[33mThere are no potions!\033[0m" << endl;
+
+					cout << "\033[31m\n=== ENEMY TRUN ===\033[0m\n" << endl; // enemy turn
+					player.takeDamage(*enemy);
+					logger.addLog(LogType::Attack, "\033[31m" + enemy->getName() + " attacks " + player.getName() + "!\033[0m");
+					logger.addLog(LogType::Damage, "\033[31m" + player.getName() + " takes " + std::to_string(enemy->getAttack()) + " damage\033[0m");
+					logger.addLog(LogType::Damage, "\033[32m" + player.getName() + "'s remaining HP: " + std::to_string(player.getHealth()) + "\033[0m");
+
+					cout << "\033[33m\n=== " << i << " Turn End ===\033[0m\n";
+					++i;
+				}
+				break;
 			}
 			break;
 
-			case 3:
-				system("cls");
-				player.ShowStatus();
-				break;
+		case 3:
+			system("cls");
+			player.ShowStatus();
+			break;
 
-			case 4: // RUN
-				system("cls");
-				cout << "You ran away in a hurry...." << endl;
-				A = false;
-				break;
-			
+		case 4: // RUN
+			system("cls");
+			cout << "You ran away in a hurry...." << endl;
+			A = false;
+			break;
+
 		}
 	}
 }
