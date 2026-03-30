@@ -138,6 +138,7 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="JarbanGrandpa.cpp" />
     <ClCompile Include="JejusLover.cpp" />
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="ScreenDoorBreaker.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="StreetDealer.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="DrunkenOjisang.h" />
     <ClInclude Include="JarbanGrandpa.h" />
     <ClInclude Include="JejusLover.h" />
+    <ClInclude Include="Logger.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="ScreenDoorBreaker.h" />
     <ClInclude Include="Shop.h" />

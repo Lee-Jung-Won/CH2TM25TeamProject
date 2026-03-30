@@ -145,6 +145,9 @@ void BattleSystem::StartBattle(Character& player)
 				cout << "\033[33mThere are no potions available...\033[0m" << endl;
 				break;
 			}
+			cout << "Press Enter to exit..." << endl;
+
+			cin.get();
 
 			cout << "\033[33mPlease select the potion number to use.: \033[0m" << endl;
 			cin >> Potionchoice;
