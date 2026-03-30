@@ -13,7 +13,9 @@ public:
     Monster(const string& monsterName, int hp, int atk, int exp, int gold);
 
     virtual void StartText() = 0;
+    
     virtual void DeadText() = 0;
+
 
     int getRewardExp() const;
     int getRewardGold() const;

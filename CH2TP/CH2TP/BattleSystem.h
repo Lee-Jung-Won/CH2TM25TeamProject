@@ -20,6 +20,7 @@
 #include "Logger.h"
 #include "HandleExerciser.h"
 #include "DansoGrandma.h"
+#include "AirportDodook.h"
 #include <vector>
 
 class BattleSystem

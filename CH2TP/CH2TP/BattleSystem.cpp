@@ -62,9 +62,9 @@ void BattleSystem::StartBattle(Character& player)
 		monsters.push_back(new DansoGrandma());
 	}
 
-	if (player.getLevel() <= 10)
+	if (player.getLevel() >= 10)
 	{
-		//10레벨에 무조건 보스몬스터가 등장하게해야하는데, 지금 만들어진 코드 안에서 구현하는 방법을 모르겠음!
+		monsters.push_back(new AirportDodook());
 	}
 
 	random_device rd;
