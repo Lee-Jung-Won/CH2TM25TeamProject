@@ -35,3 +35,16 @@ int GetRankPriority(const string& rank)
 		return 8;
 	}
 }
+
+int GetNamePriority(const string& name)
+{
+	if (name == "HP")
+	{
+		return 1;
+	}
+	else if (name == "EXP")
+	{
+		return 2;
+	}
+
+}

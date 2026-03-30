@@ -133,6 +133,7 @@
     <ClCompile Include="Deepkisscouple.cpp" />
     <ClCompile Include="DeepsleepMan.cpp" />
     <ClCompile Include="DrunkenWoman.cpp" />
+    <ClCompile Include="ExpPotion.cpp" />
     <ClCompile Include="GiantBackpacker.cpp" />
     <ClCompile Include="HandleExerciser.cpp" />
     <ClCompile Include="HealthPotion.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="Deepkisscouple.h" />
     <ClInclude Include="DeepsleepMan.h" />
     <ClInclude Include="DrunkenWoman.h" />
+    <ClInclude Include="ExpPotion.h" />
     <ClInclude Include="GiantBackpacker.h" />
     <ClInclude Include="HandleExerciser.h" />
     <ClInclude Include="HealthPotion.h" />
