@@ -75,36 +75,63 @@ void Character::ShowStatus() const
     //add inventory list print
     int cntt = 0;
     cout << "----------==========********* INVENTORY *********=========----------" << endl;
-    for (auto& i : inventory)
+    if (inventory.size() > 0)
     {
-        cntt++;
-        cout << cntt << ". [" << left << setw(6) << i->getName().rank << "]- " << i->getName().name
-            << "... " << i->getstore() << "\t";
-        if (cntt % 2 == 0)
+        for (auto& i : inventory)
         {
-            cout << endl;
+            cntt++;
+            cout << cntt << ". [" << left << setw(6) << i->getName().rank << "]- " << i->getName().name
+                << "... " << i->getstore() << "\t";
+            if (cntt % 2 == 0)
+            {
+                cout << endl;
+            }
         }
+    }
+    else
+    {
+        cout << "\t\t\t POTION NOTHING HAVE" << endl;
+    }
+    cout << endl << endl;
+    cntt = 0;
+    if (inventory2.size() > 0)
+    {
+        for (auto& i : inventory2)
+        {
+            cntt++;
+            Danso* j = dynamic_cast<Danso*>(i);
+            cout << cntt << ". [" << left << setw(6) << j->getName().rank << "]- " << j->getName().name
+                << "... [+" << j->getstore() << "Dmg] [+" << j->getupgrade() << "]\t";
+            if (cntt % 2 == 0)
+            {
+                cout << endl;
+            }
+        }
+    }
+    else
+    {
+        cout << "\t\t\t WEAPON NOTHING HAVE" << endl;
     }
     cout << endl;
     cout << "----------==========********* --------- *********=========----------" << endl;
 }
 
-void Character::makepotion(HealthPotion& getpotion)
+void Character::makepotion(Item* getpotion)
 {
-    HealthPotion* temp1 = new HealthPotion(getpotion);
+    //HealthPotion* temp1 = new HealthPotion(getpotion);
     //instance->addhpinventory(temp1);
 
     for (auto& i : inventory)
     {
-        if (i->getName() == temp1->getName()) //same name
+        if (i->getName() == getpotion->getName()) //same name
         {
-            i->setstore(i->getstore() + temp1->getstore());
-            delete temp1;
+            i->setstore(i->getstore() + getpotion->getstore());
+            delete getpotion;
             return;
         }
     }
     //diffent name
-    inventory.push_back(temp1);
+    inventory.push_back(getpotion);
 
     //sort.....
     sort(inventory.begin(), inventory.end(),
@@ -131,7 +158,19 @@ void Character::makeweapon(Danso& getweapon)
     {
         if (i->getName().name == temp1->getName().name)
         {
-            if (GetRankPriority(i->getName().rank) < GetRankPriority(temp1->getName().rank))
+            if (GetRankPriority(i->getName().rank) == GetRankPriority(temp1->getName().rank))
+            {
+                Danso* temp2 = dynamic_cast<Danso*>(i);
+                attack -= temp2->getstore();
+                cout << "YOUR WEAPON *ENCHANTED* [" << temp2->getupgrade() << "][+" << temp2->getstore() << "DMG]";
+                temp2->setupgrade(temp2->getupgrade() + 1);
+                temp2->setstore(temp2->getstore() + 10); // upgrade
+                cout << " --->>> [" << temp2->getupgrade() << "][+" << temp2->getstore() << "DMG]";
+                temp2->use(instance);
+                delete temp1;
+                temp1 = nullptr;
+            }
+            else if (GetRankPriority(i->getName().rank) < GetRankPriority(temp1->getName().rank))
             {
                 attack -= i->getstore();
                 delete i;
@@ -151,6 +190,12 @@ Character* Character::getInstance()
 vector<Item*>* Character::getinventory()
 {
     return &inventory;
+}
+
+
+vector<Item*>* Character::getwpinventory()
+{
+    return &inventory2;
 }
 
 void Character::useitem(int index)
@@ -207,7 +252,18 @@ void Character::setGold(int newGold)
 
 void Character::LevelUp()
 {
-    // cout
+    cout << "\033[33m" << R"(
+  -----------------------------------------------------------------------------------------
+ ก่                                                                                       ก่
+ ก่      .____     _______________   _______________.____       ____ _____________  __|__ ก่
+ ก่      |    |    \_   _____/\   \ /   /\_   _____/|    |     |    |   \______   \   |   ก่
+ ก่      |    |     |    __)_  \   Y   /  |    __)_ |    |     |    |   /|     ___/       ก่
+ ก่      |    |___  |        \  \     /   |        \|    |___  |    |  / |    |           ก่
+ ก่      |_______ \/_______  /   \___/   /_______  /|_______ \ |______/  |____|           ก่
+ ก่              \/        \/                    \/         \/                            ก่
+ ก่                                                                                       ก่
+  -----------------------------------------------------------------------------------------
+    )" << "\033[0m";
 
     level++;
 

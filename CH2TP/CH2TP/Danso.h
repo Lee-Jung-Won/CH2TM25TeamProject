@@ -9,6 +9,7 @@ private:
 	Tn totalname;
 	int dmg;
 	int price;
+	int upgrade;
 public:			// plastic danso 30dmg
 	Danso(string r = "Plastic", int setdmg = 30, string n = "Danso")
 	{
@@ -16,6 +17,7 @@ public:			// plastic danso 30dmg
 		totalname.rank = r;
 		dmg = setdmg;
 		price = 100;
+		upgrade = 0;
 			if (r == "Silver")
 			{
 				dmg = 60;
@@ -42,5 +44,7 @@ public:			// plastic danso 30dmg
 	void setstore(int newnum);
 	void use(Character* chr);
 	int getprice() override;
+	int getupgrade();
+	void setupgrade(int newupgrade);
 };
 
