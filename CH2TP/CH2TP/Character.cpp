@@ -156,56 +156,6 @@ vector<Item*>* Character::getinventory()
     return &inventory;
 }
 
-void Character::addhpinventory(Item* it)
-{
-    //for (auto& i : inventory)
-    //{
-    //    if (i->getName() == it->getName()) //same name
-    //    {
-    //        i->setstore(i->getstore() + it->getstore());
-    //        delete it;
-    //        return;
-    //    }
-    //}
-    ////diffent name
-    //inventory.push_back(it);
-
-    ////sort.....
-    //sort(inventory.begin(), inventory.end(),
-    //    [](Item* a, Item* b)
-    //    {
-    //        return a->getName() < b->getName();
-    //    }
-    //    );
-    ////store0 >> delete func
-
-}
-
-void Character::addweaponinventory(Item* it)
-{
-    //if (inventory2.size() == 0)
-    //{
-    //    it->use(instance);
-    //    inventory2.emplace_back(it);
-    //    return;
-    //}
-    //
-    //for (auto& i : inventory2)
-    //{
-    //    if (i->getName().name == it->getName().name)
-    //    {
-    //        if (GetRankPriority(i->getName().rank) < GetRankPriority(it->getName().rank))
-    //        {
-    //            attack -= i->getstore();
-    //            delete i;
-    //            i = it;
-    //            i->use(instance);
-    //            return;
-    //        }
-    //    }
-    //}
-}
-
 void Character::useitem(int index)
 {
     // inventory1 potion use
