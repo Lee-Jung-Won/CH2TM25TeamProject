@@ -123,15 +123,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AirportDodook.cpp" />
     <ClCompile Include="BidulgiMaster.cpp" />
     <ClCompile Include="CashWalkGirl.cpp" />
     <ClCompile Include="ChurchLover.cpp" />
     <ClCompile Include="AngryHomeless.cpp" />
     <ClCompile Include="Danso.cpp" />
+    <ClCompile Include="DansoGrandma.cpp" />
     <ClCompile Include="Deepkisscouple.cpp" />
     <ClCompile Include="DeepsleepMan.cpp" />
     <ClCompile Include="DrunkenWoman.cpp" />
     <ClCompile Include="GiantBackpacker.cpp" />
+    <ClCompile Include="HandleExerciser.cpp" />
     <ClCompile Include="HealthPotion.cpp" />
     <ClCompile Include="BattleSystem.cpp" />
     <ClCompile Include="DrunkenOjisang.cpp" />
@@ -148,6 +151,7 @@
     <ClCompile Include="SmokingGuy.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AirportDodook.h" />
     <ClInclude Include="AngryHomeless.h" />
     <ClInclude Include="BattleSystem.h" />
     <ClInclude Include="BidulgiMaster.h" />
@@ -155,10 +159,12 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="ChurchLover.h" />
     <ClInclude Include="Danso.h" />
+    <ClInclude Include="DansoGrandma.h" />
     <ClInclude Include="Deepkisscouple.h" />
     <ClInclude Include="DeepsleepMan.h" />
     <ClInclude Include="DrunkenWoman.h" />
     <ClInclude Include="GiantBackpacker.h" />
+    <ClInclude Include="HandleExerciser.h" />
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="DrunkenOjisang.h" />
