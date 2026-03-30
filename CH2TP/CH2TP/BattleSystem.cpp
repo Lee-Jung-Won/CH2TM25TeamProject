@@ -91,6 +91,7 @@ void BattleSystem::StartBattle(Character& player)
 		switch (choice)
 		{
 		case 1: // ATTACK
+			system("cls");
 			cout << "\033[32m\n=== PLAYER TURN ===\033[0m\n" << endl; // player turn
 			cout << player.getName() << " Attack! " << enemy->getName() << endl;
 			enemy->takeDamage(player);
@@ -138,6 +139,7 @@ void BattleSystem::StartBattle(Character& player)
 			break;
 
 		case 2:	//ITEM
+			system("cls");
 			player.ShowStatus();
 
 			if (player.getInventorySize() <= 0)
@@ -226,12 +228,13 @@ void BattleSystem::StartBattle(Character& player)
 			break;
 
 			case 3:
+				system("cls");
 				player.ShowStatus();
 				break;
 
 			case 4: // RUN
+				system("cls");
 				cout << "You ran away in a hurry...." << endl;
-				player.ShowStatus();
 				A = false;
 				break;
 			

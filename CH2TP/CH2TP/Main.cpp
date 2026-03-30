@@ -20,6 +20,7 @@ int main() {
 )" << "\033[0m" << endl;
     cout << "Enter your character's name: ";
     getline(cin, playerName);
+    system("cls");
 
     Character player(playerName);
     Shop sshhoopp;
@@ -27,17 +28,27 @@ int main() {
     player.ShowStatus();
 
     DrunkenOjisang monster;
-
     while (true)
     {
         cout << "\033[33m\n========<Game Menu>========\n\t1.Battle\n\t2.Store\n\t0.Exit\033[0m\nSelect a number: ";
         cin >> choice;
-        if (choice == 0) break;
+        if (choice == 0) {
+            system("cls");
+            cout << "\033[34m" << R"(
+'||''''| '||\   ||` '||'''|. 
+ ||   .   ||\\  ||   ||   || 
+ ||'''|   || \\ ||   ||   || 
+ ||       ||  \\||   ||   || 
+.||....| .||   \||. .||...|'            
+)" << "\033[0m" << endl;
+            break;
+        }
         switch (choice)
         {
-        case 1: BattleSystem::StartBattle(player); break;
+        case 1: system("cls"); BattleSystem::StartBattle(player); break;
 
         case 2:
+            system("cls");
             int cnum = 0;
             int out = 0;
             do
