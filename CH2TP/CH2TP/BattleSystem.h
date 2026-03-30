@@ -18,6 +18,8 @@
 #include "ScreenDoorBreaker.h"
 #include "JarbanGrandpa.h"
 #include "Logger.h"
+#include "HandleExerciser.h"
+#include "DansoGrandma.h"
 #include <vector>
 
 class BattleSystem
