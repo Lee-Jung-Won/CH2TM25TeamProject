@@ -5,6 +5,7 @@ class Item;
 class HealthPotion;
 class Danso;
 class Character;
+class ExpPotion;
 
 using namespace std;
 class Shop
@@ -16,7 +17,10 @@ private:
 	HealthPotion* SNHP;
 	HealthPotion* SRHP;
 	HealthPotion* SEHP;
-	
+	ExpPotion* SNEXP;
+	ExpPotion* SREXP;
+	ExpPotion* SEEXP;
+
 	std::vector<Item*> shopsobiinven;
 	//Danso* SLDANSO;
 	//Danso* SSDANSO;

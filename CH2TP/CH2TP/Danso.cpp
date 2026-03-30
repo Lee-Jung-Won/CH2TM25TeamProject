@@ -25,3 +25,13 @@ int Danso::getprice()
 {
 	return price;
 }
+
+int Danso::getupgrade()
+{
+	return upgrade;
+}
+
+void Danso::setupgrade(int newupgrade)
+{
+	upgrade = newupgrade;
+}

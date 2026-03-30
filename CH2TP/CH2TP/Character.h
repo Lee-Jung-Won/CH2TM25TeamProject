@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "HealthPotion.h"
+#include "ExpPotion.h"
 #include "Danso.h"
 #include <iostream>
 using namespace std;
@@ -26,10 +27,11 @@ protected:
 public:
 
     // put name to initialize
-    void makepotion(HealthPotion& getpotion);
+    void makepotion(Item* getpotion);
     void makeweapon(Danso& getweapon);
     Character* getInstance();
     vector<Item*>* getinventory();
+    vector<Item*>* getwpinventory();
     void addhpinventory(Item* it);
     void addweaponinventory(Item* it);
     void useitem(int index);

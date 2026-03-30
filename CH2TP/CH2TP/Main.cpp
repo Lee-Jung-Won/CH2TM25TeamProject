@@ -46,7 +46,7 @@ int main() {
                     continue;
                 }
                 sshhoopp.buy(cnum, player);
-                //player.ShowStatus();
+                player.ShowStatus();
             } while (1);
             break;
         }
