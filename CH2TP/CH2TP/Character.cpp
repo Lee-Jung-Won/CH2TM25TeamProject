@@ -72,9 +72,14 @@ void Character::ShowStatus() const
     cout << "GOLD:   " << gold << " G" << endl;
     cout << "============================\n";
 
-    //add inventory list print
+    //inventory print
+    printinventory();
+}
+
+void Character::printinventory() const
+{
     int cntt = 0;
-    cout << "----------==========********* INVENTORY *********=========----------" << endl;
+    cout << "----------===============********* INVENTORY *********==============----------" << endl;
     if (inventory.size() > 0)
     {
         for (auto& i : inventory)
@@ -90,7 +95,7 @@ void Character::ShowStatus() const
     }
     else
     {
-        cout << "\t\t\t POTION NOTHING HAVE" << endl;
+        cout << "\t\t\t\t POTION NOTHING HAVE" << endl;
     }
     cout << endl << endl;
     cntt = 0;
@@ -110,10 +115,11 @@ void Character::ShowStatus() const
     }
     else
     {
-        cout << "\t\t\t WEAPON NOTHING HAVE" << endl;
+        cout << "\t\t\t\t WEAPON NOTHING HAVE" << endl;
     }
     cout << endl;
-    cout << "----------==========********* --------- *********=========----------" << endl;
+    cout << "----------===============********* --------- *********==============----------" << endl;
+
 }
 
 void Character::makepotion(Item* getpotion)

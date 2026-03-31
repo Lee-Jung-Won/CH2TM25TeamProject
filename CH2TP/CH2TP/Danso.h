@@ -16,27 +16,27 @@ public:			// plastic danso 30dmg
 		totalname.name = n;
 		totalname.rank = r;
 		dmg = setdmg;
-		price = 50;
+		price = 150;
 		upgrade = 0;
 			if (r == "Silver")
 			{
 				dmg = 60;
-				price = 100;
+				price = 300;
 			}
 			else if (r == "Gold")
 			{
 				dmg = 120;
-				price = 150;
+				price = 500;
 			}
 			else if (r == "Platinum")
 			{
 				dmg = 200;
-				price = 200;
+				price = 750;
 			}
 			else if (r == "Diamond")
 			{
 				dmg = 300;
-				price = 250;
+				price = 1000;
 			}
 	}
 	const Tn& getName() const override;
