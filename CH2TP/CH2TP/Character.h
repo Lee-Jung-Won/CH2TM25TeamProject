@@ -55,6 +55,8 @@ public:
 
     int getLevel() const;
 
+    int getExp() const;
+
     void GainExp(int inExp);
 
     void GainGold(int inGold);

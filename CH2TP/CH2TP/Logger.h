@@ -5,7 +5,7 @@
 #include <map>
 #include <iomanip>
 
-enum class LogType { Attack, Damage, EXP, Gold, Kill };
+enum class LogType { Attack, Damage, Exp, Gold, Kill, Item};
 
 class Logger
 {
@@ -22,9 +22,10 @@ public:
         switch (type) {
         case LogType::Attack: prefix = "[ATTACK] "; break;
         case LogType::Damage: prefix = "[DAMAGE] "; break;
-        case LogType::EXP:   prefix = "[EXP]   "; break;
+        case LogType::Exp:    prefix = "[EXP]    "; break;
         case LogType::Gold:   prefix = "[GOLD]   "; break;
         case LogType::Kill:   prefix = "[KILL]   "; break;
+        case LogType::Item:   prefix = "[ITEM]   "; break;
         }
 
         std::string fullLog = prefix + message;

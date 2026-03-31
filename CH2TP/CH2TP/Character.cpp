@@ -59,6 +59,11 @@ int Character::getLevel() const
 {
     return level;
 }
+int Character::getExp() const
+{
+    return exp;
+}
+
 
 void Character::takeDamage(const Character& attacker)
 {
