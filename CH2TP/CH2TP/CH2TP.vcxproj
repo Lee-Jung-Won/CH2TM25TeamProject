@@ -147,7 +147,7 @@
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="StreetDealer.cpp" />
     <ClCompile Include="TiredBusinessMan.cpp" />
-    <ClCompile Include="LoudSongGril.cpp" />
+    <ClCompile Include="LoudSongGirl.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Monster.cpp" />
@@ -180,7 +180,7 @@
     <ClInclude Include="Shop.h" />
     <ClInclude Include="StreetDealer.h" />
     <ClInclude Include="TiredBusinessMan.h" />
-    <ClInclude Include="LoudSongGril.h" />
+    <ClInclude Include="LoudSongGirl.h" />
     <ClInclude Include="SmokingGuy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
