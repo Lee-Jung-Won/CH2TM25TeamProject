@@ -58,7 +58,7 @@ int main() {
                 {
                     break;
                 }
-                cout << "Choose num :";
+                cout << "Choose [NUM] you want to BUY : ";
                 cin >> cnum;
                 if (cnum == 0)
                 {

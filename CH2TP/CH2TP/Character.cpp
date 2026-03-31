@@ -10,11 +10,11 @@ Character::Character(const string& characterName, bool showMessage)
     level = 1;
     maxHealth = 200;
     health = 200;
-    attack = 3000;
+    attack = 30;
     exp = 0;
     maxExp = 100;
     instance = this;
-    gold = 0;
+    gold = 500;
 
     if (showMessage) 
         cout << "Welcome, " << name << "! Your adventure begins." << endl;
@@ -162,10 +162,10 @@ void Character::makeweapon(Danso& getweapon)
             {
                 Danso* temp2 = dynamic_cast<Danso*>(i);
                 attack -= temp2->getstore();
-                cout << "YOUR WEAPON *ENCHANTED* [" << temp2->getupgrade() << "][+" << temp2->getstore() << "DMG]";
+                cout << "YOUR WEAPON *ENCHANTED* [+" << temp2->getupgrade() << "][+" << temp2->getstore() << "DMG]";
                 temp2->setupgrade(temp2->getupgrade() + 1);
-                temp2->setstore(temp2->getstore() + 10); // upgrade
-                cout << " --->>> [" << temp2->getupgrade() << "][+" << temp2->getstore() << "DMG]";
+                temp2->setstore(temp2->getstore() + (temp2->getstore()*0.3)); // upgrade
+                cout << " --->>> [+" << temp2->getupgrade() << "][+" << temp2->getstore() << "DMG]";
                 temp2->use(instance);
                 delete temp1;
                 temp1 = nullptr;
@@ -292,7 +292,7 @@ void Character::LevelUp()
   
 
     cout << "CurrentLevel is " << level << endl;
-    cout << "CurrentAttack is +20 "  << endl;
+    cout << "CurrentAttack is +10 "  << endl;
   
 
 

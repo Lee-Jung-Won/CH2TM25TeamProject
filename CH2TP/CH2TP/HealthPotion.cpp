@@ -33,9 +33,11 @@ void HealthPotion::use(Character* chr)
         valuecompare = chr->getHealth() + 200 - chr->getmaxHealth();
         if (valuecompare > 0)
         {
+            cout << "[ +" << 200 - valuecompare << "HP ] - [ FULL HP ]" << endl;
             chr->setHealth(chr->getHealth() + 200 - valuecompare);
             return;
         }
+        cout << "[ + 200HP ]" << endl;
         chr->setHealth(chr->getHealth() + 200);
         return;
     }
@@ -45,9 +47,11 @@ void HealthPotion::use(Character* chr)
         valuecompare = chr->getHealth() + 150 - chr->getmaxHealth();
         if (valuecompare > 0)
         {
+            cout << "[ +" << 150 - valuecompare << "HP ] - [ FULL HP ]" << endl;
             chr->setHealth(chr->getHealth() + 150 - valuecompare);
             return;
         }
+        cout << "[ + 150HP ]" << endl;
         chr->setHealth(chr->getHealth() + 150);
         return;
     }
@@ -57,9 +61,11 @@ void HealthPotion::use(Character* chr)
         valuecompare = chr->getHealth() + 100 - chr->getmaxHealth();
         if (valuecompare > 0)
         {
+            cout << "[ +" << 100 - valuecompare << "HP ] - [ FULL HP ]" << endl;
             chr->setHealth(chr->getHealth() + 100 - valuecompare);
             return;
         }
+        cout << "[ + 100HP ]" << endl;
         chr->setHealth(chr->getHealth() + 100);
         return;
     }
