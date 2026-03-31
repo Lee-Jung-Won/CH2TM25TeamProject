@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void BattleSystem::StartBattle(Character& player)
+void BattleSystem::StartBattle(Character& player, Logger& logger)
 {
 	vector<Monster*> monsters;
 
@@ -141,7 +141,6 @@ void BattleSystem::StartBattle(Character& player)
 	bool A = true;
 	int choice;
 	int Potionchoice;
-	Logger logger;
 
 	while (A)
 	{
@@ -193,6 +192,8 @@ void BattleSystem::StartBattle(Character& player)
 				player.GaiHealth(30);
 				player.GainGold(inGold);
 				player.GainExp(inExp);
+
+				logger.recordKill(enemy->getName());
 
 				for (Monster* m : monsters) // 메모리 릭 방지
 				{

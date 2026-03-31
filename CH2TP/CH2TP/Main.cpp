@@ -10,6 +10,7 @@ using namespace std;
 int main() {
     int choice;
     string playerName;
+    Logger log;
     cout << "\033[34m" << R"(
   ________                          _________ __                 __   
  /  _____/_____    _____   ____    /   _____//  |______ ________/  |_ 
@@ -18,8 +19,24 @@ int main() {
  \______  (____  /__|_|  /\___  > /_______  /|__| (____  /__|   |__|  
         \/     \/      \/     \/          \/           \/             
 )" << "\033[0m" << endl;
-    cout << "Enter your character's name: ";
-    getline(cin, playerName);
+    
+    while (1)
+    {
+        cout << "Enter your character's name: ";
+        getline(cin, playerName);
+
+        if (playerName.empty())
+        {
+            cout << "Re enter your Name." << endl;
+        }
+        else
+        {
+            break;
+        }
+    }
+    
+    
+    
     system("cls");
 
     Character player(playerName);
@@ -41,11 +58,13 @@ int main() {
  ||       ||  \\||   ||   || 
 .||....| .||   \||. .||...|'            
 )" << "\033[0m" << endl;
+
+            log.showSummary();
             break;
         }
         switch (choice)
         {
-        case 1: system("cls"); BattleSystem::StartBattle(player); break;
+        case 1: system("cls"); BattleSystem::StartBattle(player, log); break;
 
         case 2:
             system("cls");
