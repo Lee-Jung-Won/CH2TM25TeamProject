@@ -221,6 +221,7 @@ void Character::useitem(int index)
     // inventory1 potion use
     if ((index < 1) || (index > inventory.size()))
     {
+        cout << "You Dont Have THAT NUMBER OF ITEM" << endl;
         return; // wrong index nonfunc
     }
     inventory[index - 1]->use(instance);
