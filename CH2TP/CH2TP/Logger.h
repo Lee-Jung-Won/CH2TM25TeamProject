@@ -5,7 +5,7 @@
 #include <map>
 #include <iomanip>
 
-enum class LogType { Attack, Damage, Item, Gold, Kill };
+enum class LogType { Attack, Damage, EXP, Gold, Kill };
 
 class Logger
 {
@@ -22,7 +22,7 @@ public:
         switch (type) {
         case LogType::Attack: prefix = "[ATTACK] "; break;
         case LogType::Damage: prefix = "[DAMAGE] "; break;
-        case LogType::Item:   prefix = "[ITEM]   "; break;
+        case LogType::EXP:   prefix = "[EXP]   "; break;
         case LogType::Gold:   prefix = "[GOLD]   "; break;
         case LogType::Kill:   prefix = "[KILL]   "; break;
         }
