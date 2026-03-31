@@ -18,8 +18,24 @@ int main() {
  \______  (____  /__|_|  /\___  > /_______  /|__| (____  /__|   |__|  
         \/     \/      \/     \/          \/           \/             
 )" << "\033[0m" << endl;
-    cout << "Enter your character's name: ";
-    getline(cin, playerName);
+    
+    while (1)
+    {
+        cout << "Enter your character's name: ";
+        getline(cin, playerName);
+
+        if (playerName.empty())
+        {
+            cout << "Re enter your Name." << endl;
+        }
+        else
+        {
+            break;
+        }
+    }
+    
+    
+    
     system("cls");
 
     Character player(playerName);

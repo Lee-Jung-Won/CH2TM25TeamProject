@@ -17,7 +17,14 @@ Character::Character(const string& characterName, bool showMessage)
     gold = 500;
 
     if (showMessage) 
-        cout << "Welcome, " << name << "! Your adventure begins." << endl;
+        cout << "Welcome, " << name << "! The train is arriving. Please, watch your step." << endl;
+
+        cout << "" << endl;
+
+        cout << "Screen door is opening..." << endl;
+
+
+
 }
 
 string Character::getName() const 
