@@ -23,9 +23,13 @@
     <ClCompile Include="GiantBackpacker.cpp" />
     <ClCompile Include="Deepkisscouple.cpp" />
     <ClCompile Include="SmokingGuy.cpp" />
-    <ClCompile Include="LoudSongGril.cpp" />
+    <ClCompile Include="LoudSongGirl.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="AirportDodook.cpp" />
+    <ClCompile Include="DansoGrandma.cpp" />
+    <ClCompile Include="ExpPotion.cpp" />
+    <ClCompile Include="HandleExerciser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BattleSystem.h" />
@@ -49,8 +53,12 @@
     <ClInclude Include="GiantBackpacker.h" />
     <ClInclude Include="Deepkisscouple.h" />
     <ClInclude Include="SmokingGuy.h" />
-    <ClInclude Include="LoudSongGril.h" />
+    <ClInclude Include="LoudSongGirl.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="Logger.h" />
+    <ClInclude Include="AirportDodook.h" />
+    <ClInclude Include="DansoGrandma.h" />
+    <ClInclude Include="ExpPotion.h" />
+    <ClInclude Include="HandleExerciser.h" />
   </ItemGroup>
 </Project>

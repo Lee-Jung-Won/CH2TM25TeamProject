@@ -5,10 +5,10 @@
 #include <string>
 #include <random>
 
-class LoudSongGril : public Monster
+class LoudSongGirl : public Monster
 {
 public:
-	LoudSongGril();
+	LoudSongGirl();
 
 	void StartText() override;
 	void DeadText() override;

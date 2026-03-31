@@ -29,7 +29,7 @@ void BattleSystem::StartBattle(Character& player, Logger& logger)
 	if (player.getLevel() >= 4 && player.getLevel() < 10)
 	{
 		monsters.push_back(new SmokingGuy());
-		monsters.push_back(new LoudSongGril());
+		monsters.push_back(new LoudSongGirl());
 	}
 
 	if (player.getLevel() >= 5 && player.getLevel() < 10)
