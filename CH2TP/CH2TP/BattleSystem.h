@@ -26,5 +26,5 @@
 class BattleSystem
 {
 public:
-    static void StartBattle(Character& player);
+    static void StartBattle(Character& player, Logger& logger);
 };
