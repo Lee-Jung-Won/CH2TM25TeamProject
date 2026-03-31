@@ -15,7 +15,7 @@ void BidulgiMaster::setStats()
     random_device rd;
     mt19937 gen(rd()); 
 
-    uniform_int_distribution<> hpDist(level * 171, level * 200); 
+    uniform_int_distribution<> hpDist(level * 571, level * 714); 
     uniform_int_distribution<> atkDist(level * 10, level * 11.5);   
 
     health = hpDist(gen);

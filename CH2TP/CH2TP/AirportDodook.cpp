@@ -4,7 +4,7 @@
 using namespace std;
 
 AirportDodook::AirportDodook()
-	: Monster("[LV10]AirportDodook", 2000, 100, 0, 0)
+	: Monster("[LV10]AirportDodook", 10000, 100, 0, 0)
 {
 	level = 10;
 	

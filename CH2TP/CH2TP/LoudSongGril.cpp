@@ -13,7 +13,7 @@ void LoudSongGril::setstats()
 	random_device rd;
 	mt19937 gen(rd());
 
-	uniform_int_distribution<> hpDist(level * 135, level * 160);
+	uniform_int_distribution<> hpDist(level * 150, level * 200);
 	uniform_int_distribution<> atkDist(level * 12, level * 13);
 
 	health = hpDist(gen);

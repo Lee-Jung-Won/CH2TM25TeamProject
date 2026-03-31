@@ -15,7 +15,7 @@ void ChurchLover::setStats()
     random_device rd;
     mt19937 gen(rd()); // 랜덤함수 엔진
 
-    uniform_int_distribution<> hpDist(level * 150, level * 200);  // 체력 30 ~ 35
+    uniform_int_distribution<> hpDist(level * 200, level * 300);  // 체력 30 ~ 35
     uniform_int_distribution<> atkDist(level * 11, level * 13);   // 공격력 5 ~ 7
 
     health = hpDist(gen);

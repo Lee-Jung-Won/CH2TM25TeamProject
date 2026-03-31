@@ -15,7 +15,7 @@ void CashWalkGirl::setStats()
     random_device rd;
     mt19937 gen(rd()); 
 
-    uniform_int_distribution<> hpDist(level * 165, level * 200);  
+    uniform_int_distribution<> hpDist(level * 333, level * 500);  
     uniform_int_distribution<> atkDist(level * 11, level * 12);   
 
     health = hpDist(gen);
