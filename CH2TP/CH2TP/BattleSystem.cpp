@@ -191,7 +191,10 @@ void BattleSystem::StartBattle(Character& player, Logger& logger)
 
 				player.GaiHealth(30);
 				player.GainGold(inGold);
+				logger.addLog(LogType::Gold, "\033[31mGet " + to_string(inGold) + "G" + "\033[0m");
+				int EXP = player.getExp();
 				player.GainExp(inExp);
+				logger.addLog(LogType::Exp, "\033[31m" + to_string(EXP) + " -> " + to_string(player.getExp()) + "Exp\033[0m");
 
 				logger.recordKill(enemy->getName());
 
