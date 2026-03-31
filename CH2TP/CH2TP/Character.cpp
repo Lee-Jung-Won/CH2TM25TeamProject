@@ -310,6 +310,7 @@ void Character::LevelUp()
 
     cout << "CurrentLevel is " << level << endl;
     cout << "CurrentAttack is +10 "  << endl;
+    cout << "CurrentHealth is + 50 " << endl;
   
 
 
