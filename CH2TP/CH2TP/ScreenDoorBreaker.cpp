@@ -15,7 +15,7 @@ void ScreenDoorBreaker::setStats()
     random_device rd;
     mt19937 gen(rd()); // 랜덤함수 엔진
 
-    uniform_int_distribution<> hpDist(level * 175, level * 213);  // 체력 30 ~ 35
+    uniform_int_distribution<> hpDist(level * 750, level * 987.5);  // 체력 30 ~ 35
     uniform_int_distribution<> atkDist(level * 10, level * 11.3);   // 공격력 5 ~ 7
 
     health = hpDist(gen);

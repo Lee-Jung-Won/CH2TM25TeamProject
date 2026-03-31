@@ -15,7 +15,7 @@ void StreetDealer::setStats()
     random_device rd;
     mt19937 gen(rd()); // 랜덤함수 엔진
 
-    uniform_int_distribution<> hpDist(level * 165, level * 200);
+    uniform_int_distribution<> hpDist(level * 333, level * 500);
     uniform_int_distribution<> atkDist(level * 11, level * 12);    // 공격력 5 ~ 7
 
     health = hpDist(gen);

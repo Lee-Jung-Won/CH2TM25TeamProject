@@ -9,12 +9,12 @@ Shop::Shop()
 	name = "SHOP";
 	buget = 0;
 
-	SNHP = new HealthPotion(10, "Normal");
-	SRHP = new HealthPotion(10, "Rare");
-	SEHP = new HealthPotion(10, "Epic");
-	SNEXP = new ExpPotion(5, "Normal");
-	SREXP = new ExpPotion(4, "Rare");
-	SEEXP = new ExpPotion(3, "Epic");
+	SNHP = new HealthPotion(100, "Normal");
+	SRHP = new HealthPotion(100, "Rare");
+	SEHP = new HealthPotion(100, "Epic");
+	SNEXP = new ExpPotion(50, "Normal");
+	SREXP = new ExpPotion(40, "Rare");
+	SEEXP = new ExpPotion(30, "Epic");
 	shopsobiinven.push_back(SNHP);
 	shopsobiinven.push_back(SRHP);
 	shopsobiinven.push_back(SEHP);

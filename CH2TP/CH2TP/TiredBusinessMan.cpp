@@ -15,7 +15,7 @@ void TiredBusinessMan::setStats()
     random_device rd;
     mt19937 gen(rd()); // 랜덤함수 엔진
 
-    uniform_int_distribution<> hpDist(level * 171, level * 200);
+    uniform_int_distribution<> hpDist(level * 571, level * 714);
     uniform_int_distribution<> atkDist(level * 10, level * 11.5);   // 공격력 5 ~ 7
 
     health = hpDist(gen);
