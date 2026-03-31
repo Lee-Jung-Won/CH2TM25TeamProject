@@ -187,9 +187,9 @@ void Shop::buy(int num, Character& chr)
 					{
 						if (chr.getGold() >= (prehp->getprice() * many))
 						{
-							chr.makepotion(prehp);
 							chr.setGold(chr.getGold() - many * prehp->getprice());
 							shopsobiinven[0]->setstore(shopsobiinven[0]->getstore() - many);
+							chr.makepotion(prehp);
 						}
 						else
 						{
@@ -220,9 +220,9 @@ void Shop::buy(int num, Character& chr)
 					{
 						if (chr.getGold() >= (prehp->getprice() * many))
 						{
-							chr.makepotion(prehp);
 							chr.setGold(chr.getGold() - many * prehp->getprice());
 							shopsobiinven[1]->setstore(shopsobiinven[1]->getstore() - many);
+							chr.makepotion(prehp);
 						}
 						else
 						{
@@ -253,9 +253,10 @@ void Shop::buy(int num, Character& chr)
 					{
 						if (chr.getGold() >= (prehp->getprice() * many))
 						{
-							chr.makepotion(prehp);
+							
 							chr.setGold(chr.getGold() - many * prehp->getprice());
 							shopsobiinven[2]->setstore(shopsobiinven[2]->getstore() - many);
+							chr.makepotion(prehp);
 						}
 						else
 						{
@@ -286,9 +287,10 @@ void Shop::buy(int num, Character& chr)
 					{
 						if (chr.getGold() >= (prehp->getprice() * many))
 						{
-							chr.makepotion(prehp);
+							
 							chr.setGold(chr.getGold() - many * prehp->getprice());
 							shopsobiinven[num - 1]->setstore(shopsobiinven[num - 1]->getstore() - many);
+							chr.makepotion(prehp);
 						}
 						else
 						{
@@ -319,9 +321,10 @@ void Shop::buy(int num, Character& chr)
 					{
 						if (chr.getGold() >= (prehp->getprice() * many))
 						{
-							chr.makepotion(prehp);
+							
 							chr.setGold(chr.getGold() - many * prehp->getprice());
 							shopsobiinven[num - 1]->setstore(shopsobiinven[num - 1]->getstore() - many);
+							chr.makepotion(prehp);
 						}
 						else
 						{
@@ -352,9 +355,10 @@ void Shop::buy(int num, Character& chr)
 					{
 						if (chr.getGold() >= (prehp->getprice() * many))
 						{
-							chr.makepotion(prehp);
+							
 							chr.setGold(chr.getGold() - many * prehp->getprice());
 							shopsobiinven[num - 1]->setstore(shopsobiinven[num - 1]->getstore() - many);
+							chr.makepotion(prehp);
 						}
 						else
 						{
@@ -385,8 +389,9 @@ void Shop::buy(int num, Character& chr)
 			{
 				if (chr.getGold() >= prewp.getprice())
 				{
-					chr.makeweapon(prewp);
+					
 					chr.setGold(chr.getGold() - prewp.getprice());
+					chr.makeweapon(prewp);
 				}
 				else
 				{
@@ -403,8 +408,9 @@ void Shop::buy(int num, Character& chr)
 				{
 					if (chr.getGold() >= prewp.getprice())
 					{
-						chr.makeweapon(prewp);
+						
 						chr.setGold(chr.getGold() - prewp.getprice());
+						chr.makeweapon(prewp);
 					}
 					else
 					{
@@ -420,8 +426,9 @@ void Shop::buy(int num, Character& chr)
 			{
 				if (chr.getGold() >= prewp.getprice())
 				{
-					chr.makeweapon(prewp);
+					
 					chr.setGold(chr.getGold() - prewp.getprice());
+					chr.makeweapon(prewp);
 				}
 				else
 				{
@@ -438,8 +445,9 @@ void Shop::buy(int num, Character& chr)
 				{
 					if (chr.getGold() >= prewp.getprice())
 					{
-						chr.makeweapon(prewp);
+						
 						chr.setGold(chr.getGold() - prewp.getprice());
+						chr.makeweapon(prewp);
 					}
 					else
 					{
@@ -455,8 +463,9 @@ void Shop::buy(int num, Character& chr)
 			{
 				if (chr.getGold() >= prewp.getprice())
 				{
-					chr.makeweapon(prewp);
+					
 					chr.setGold(chr.getGold() - prewp.getprice());
+					chr.makeweapon(prewp);
 				}
 				else
 				{
@@ -473,8 +482,9 @@ void Shop::buy(int num, Character& chr)
 				{
 					if (chr.getGold() >= prewp.getprice())
 					{
-						chr.makeweapon(prewp);
+						
 						chr.setGold(chr.getGold() - prewp.getprice());
+						chr.makeweapon(prewp);
 					}
 					else
 					{
@@ -490,8 +500,9 @@ void Shop::buy(int num, Character& chr)
 			{
 				if (chr.getGold() >= prewp.getprice())
 				{
-					chr.makeweapon(prewp);
+					
 					chr.setGold(chr.getGold() - prewp.getprice());
+					chr.makeweapon(prewp);
 				}
 				else
 				{
@@ -508,8 +519,9 @@ void Shop::buy(int num, Character& chr)
 				{
 					if (chr.getGold() >= prewp.getprice())
 					{
-						chr.makeweapon(prewp);
+						
 						chr.setGold(chr.getGold() - prewp.getprice());
+						chr.makeweapon(prewp);
 					}
 					else
 					{
@@ -525,8 +537,9 @@ void Shop::buy(int num, Character& chr)
 			{
 				if (chr.getGold() >= prewp.getprice())
 				{
-					chr.makeweapon(prewp);
+					
 					chr.setGold(chr.getGold() - prewp.getprice());
+					chr.makeweapon(prewp);
 				}
 				else
 				{
@@ -543,8 +556,9 @@ void Shop::buy(int num, Character& chr)
 				{
 					if (chr.getGold() >= prewp.getprice())
 					{
-						chr.makeweapon(prewp);
+						
 						chr.setGold(chr.getGold() - prewp.getprice());
+						chr.makeweapon(prewp);
 					}
 					else
 					{
