@@ -29,17 +29,17 @@ void ExpPotion::use(Character* chr)
     
     if (totalname.rank == "Epic")
     {
-        chr->GainExp(30);
+        chr->GainExp(100);
     }
 
     else if (totalname.rank == "Rare")
     {
-        chr->GainExp(20);
+        chr->GainExp(50);
     }
 
     else if (totalname.rank == "Normal")
     {
-        chr->GainExp(10);
+        chr->GainExp(30);
     }
 
 }

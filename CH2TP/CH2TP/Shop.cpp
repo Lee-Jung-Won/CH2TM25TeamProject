@@ -100,17 +100,17 @@ int Shop::openshop(Character& who)
 		)" << "\033[0m" << endl;
 		cout << "=======================================================================================" << endl;
 		cout << "=============================------------------------------============================" << endl;
-		cout << "==========            1. HP-Potion(Normal) ::  " << shopsobiinven[0]->getprice() << "G...(+ 30HP)(" << shopsobiinven[0]->getstore() << ")            ==========" << endl;
+		cout << "==========            1. HP-Potion(Normal) ::  " << shopsobiinven[0]->getprice() << "G...(+100HP)  (" << shopsobiinven[0]->getstore() << ")          ==========" << endl;
 		cout << "=======================================================================================" << endl;
-		cout << "==========            2. HP-Potion( Rare ) :: " << shopsobiinven[1]->getprice() << "G...(+ 50HP)(" << shopsobiinven[1]->getstore() << ")            ==========" << endl;
+		cout << "==========            2. HP-Potion( Rare ) ::  " << shopsobiinven[1]->getprice() << "G...(+150HP)  (" << shopsobiinven[1]->getstore() << ")          ==========" << endl;
 		cout << "=======================================================================================" << endl;
-		cout << "==========            3. HP-Potion( Epic ) :: " << shopsobiinven[2]->getprice() << "G...(+100HP)(" << shopsobiinven[2]->getstore() << ")            ==========" << endl;
+		cout << "==========            3. HP-Potion( Epic ) :: " << shopsobiinven[2]->getprice() << "G...(+200HP)  (" << shopsobiinven[2]->getstore() << ")          ==========" << endl;
 		cout << "=======================================================================================" << endl;
-		cout << "==========            4.EXP-Potion(Normal) ::  " << shopsobiinven[3]->getprice() << "G...(+10EXP)( " << shopsobiinven[3]->getstore() << ")            ==========" << endl;
+		cout << "==========            4.EXP-Potion(Normal) ::  " << shopsobiinven[3]->getprice() << "G...(+30EXP)  ( " << shopsobiinven[3]->getstore() << ")          ==========" << endl;
 		cout << "=======================================================================================" << endl;
-		cout << "==========            5.EXP-Potion( Rare ) ::  " << shopsobiinven[4]->getprice() << "G...(+20EXP)( " << shopsobiinven[4]->getstore() << ")            ==========" << endl;
+		cout << "==========            5.EXP-Potion( Rare ) ::  " << shopsobiinven[4]->getprice() << "G...(+50EXP)  ( " << shopsobiinven[4]->getstore() << ")          ==========" << endl;
 		cout << "=======================================================================================" << endl;
-		cout << "==========            6.EXP-Potion( Epic ) ::  " << shopsobiinven[5]->getprice() << "G...(+30EXP)( " << shopsobiinven[5]->getstore() << ")            ==========" << endl;
+		cout << "==========            6.EXP-Potion( Epic ) ::  " << shopsobiinven[5]->getprice() << "G...(+100EXP) ( " << shopsobiinven[5]->getstore() << ")          ==========" << endl;
 		cout << "=======================================================================================" << endl;
 		cout << "---------------------------------------------------------------------------------------" << endl;
 		cout << "MoneyYouHave : " << who.getGold() << "G" << "                                                           0. Back" << endl;
@@ -129,15 +129,15 @@ int Shop::openshop(Character& who)
 		cout << "=============================------------------------------============================" << endl;
 		cout << "========================== <<  Danso_               Store  >> =========================" << endl;
 		cout << "=============================------------------------------============================" << endl;
-		cout << "=======                    1. Plastic Danso :: 100G (+30dmg)                    =======" << endl;
+		cout << "=======                    1. Plastic Danso ::  50G (+30dmg)                    =======" << endl;
 		cout << "=======================================================================================" << endl;
-		cout << "=======                    2. Silver  Danso :: 200G (+60dmg)                    =======" << endl;
+		cout << "=======                    2. Silver  Danso :: 100G (+60dmg)                    =======" << endl;
 		cout << "=======================================================================================" << endl;
-		cout << "=======                    3. Gold    Danso :: 300G (+120dmg)                   =======" << endl;
+		cout << "=======                    3. Gold    Danso :: 150G (+120dmg)                   =======" << endl;
 		cout << "=======================================================================================" << endl;
-		cout << "=======                    4. Platinu Danso :: 400G (+200dmg)                   =======" << endl;
+		cout << "=======                    4. Platinu Danso :: 200G (+200dmg)                   =======" << endl;
 		cout << "=======================================================================================" << endl;
-		cout << "=======                    5. Diamond Danso :: 500G (+300dmg)                   =======" << endl;
+		cout << "=======                    5. Diamond Danso :: 250G (+300dmg)                   =======" << endl;
 		cout << "=======================================================================================" << endl;
 		cout << "---------------------------------------------------------------------------------------" << endl;
 		cout << "MoneyYouHave : " << who.getGold() << "G" << "                                                           0. Back" << endl;
@@ -160,47 +160,47 @@ int Shop::openshop(Character& who)
 		cout << endl;
 		chosenum = 3;
 
-		int cntt = 0;
-		cout << "----------==========********* INVENTORY *********=========----------" << endl;
-		if (who.getinventory()->size() > 0)
-		{
-			for (auto& i : *(who.getinventory()))
-			{
-				cntt++;
-				cout << cntt << ". [" << left << setw(6) << i->getName().rank << "]- " << i->getName().name
-					<< "... " << i->getstore() << "\t";
-				if (cntt % 2 == 0)
-				{
-					cout << endl;
-				}
-			}
-		}
-		else
-		{
-			cout << "\t\t\t POTION NOTHING HAVE" << endl;
-		}
-		cout << endl << endl;
-		cntt = 0;
-		if (who.getwpinventory()->size() > 0)
-		{
-			for (auto& i : *(who.getwpinventory()))
-			{
-				cntt++;
-				Danso* j = dynamic_cast<Danso*>(i);
-				cout << cntt << ". [" << left << setw(6) << j->getName().rank << "]- " << j->getName().name
-					<< "... [+" << j->getstore() << "Dmg] [+" << j->getupgrade() << "]\t";
-				if (cntt % 2 == 0)
-				{
-					cout << endl;
-				}
-			}
-		}
-		else
-		{
-			cout << "\t\t\t WEAPON NOTHING HAVE" << endl;
-		}
-		cout << endl;
-		cout << "----------==========********* --------- *********=========----------" << endl;
+		//int cntt = 0;
+		//cout << "----------==========********* INVENTORY *********=========----------" << endl;
+		//if (who.getinventory()->size() > 0)
+		//{
+		//	for (auto& i : *(who.getinventory()))
+		//	{
+		//		cntt++;
+		//		cout << cntt << ". [" << left << setw(6) << i->getName().rank << "]- " << i->getName().name
+		//			<< "... " << i->getstore() << "\t";
+		//		if (cntt % 2 == 0)
+		//		{
+		//			cout << endl;
+		//		}
+		//	}
+		//}
+		//else
+		//{
+		//	cout << "\t\t\t POTION NOTHING HAVE" << endl;
+		//}
+		//cout << endl << endl;
+		//cntt = 0;
+		//if (who.getwpinventory()->size() > 0)
+		//{
+		//	for (auto& i : *(who.getwpinventory()))
+		//	{
+		//		cntt++;
+		//		Danso* j = dynamic_cast<Danso*>(i);
+		//		cout << cntt << ". [" << left << setw(6) << j->getName().rank << "]- " << j->getName().name
+		//			<< "... [+" << j->getstore() << "Dmg] [+" << j->getupgrade() << "]\t";
+		//		if (cntt % 2 == 0)
+		//		{
+		//			cout << endl;
+		//		}
+		//	}
+		//}
+		//else
+		//{
+		//	cout << "\t\t\t WEAPON NOTHING HAVE" << endl;
+		//}
+		//cout << endl;
+		//cout << "----------==========********* --------- *********=========----------" << endl;
 	}
 	
 	return chosenum;

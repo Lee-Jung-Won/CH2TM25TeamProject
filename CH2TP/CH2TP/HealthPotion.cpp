@@ -30,37 +30,43 @@ void HealthPotion::use(Character* chr)
     if (totalname.rank == "Epic")
     {
         int valuecompare = 0;
-        valuecompare = chr->getHealth() + 100 - chr->getmaxHealth();
+        valuecompare = chr->getHealth() + 200 - chr->getmaxHealth();
         if (valuecompare > 0)
         {
-            chr->setHealth(chr->getHealth() + 100 - valuecompare);
+            cout << "[ +" << 200 - valuecompare << "HP ] - [ FULL HP ]" << endl;
+            chr->setHealth(chr->getHealth() + 200 - valuecompare);
             return;
         }
-        chr->setHealth(chr->getHealth() + 100);
+        cout << "[ + 200HP ]" << endl;
+        chr->setHealth(chr->getHealth() + 200);
         return;
     }
     else if(totalname.rank == "Rare")
     {
         int valuecompare = 0;
-        valuecompare = chr->getHealth() + 50 - chr->getmaxHealth();
+        valuecompare = chr->getHealth() + 150 - chr->getmaxHealth();
         if (valuecompare > 0)
         {
-            chr->setHealth(chr->getHealth() + 50 - valuecompare);
+            cout << "[ +" << 150 - valuecompare << "HP ] - [ FULL HP ]" << endl;
+            chr->setHealth(chr->getHealth() + 150 - valuecompare);
             return;
         }
-        chr->setHealth(chr->getHealth() + 50);
+        cout << "[ + 150HP ]" << endl;
+        chr->setHealth(chr->getHealth() + 150);
         return;
     }
     else if (totalname.rank == "Normal")
     {
         int valuecompare = 0;
-        valuecompare = chr->getHealth() + 30 - chr->getmaxHealth();
+        valuecompare = chr->getHealth() + 100 - chr->getmaxHealth();
         if (valuecompare > 0)
         {
-            chr->setHealth(chr->getHealth() + 30 - valuecompare);
+            cout << "[ +" << 100 - valuecompare << "HP ] - [ FULL HP ]" << endl;
+            chr->setHealth(chr->getHealth() + 100 - valuecompare);
             return;
         }
-        chr->setHealth(chr->getHealth() + 30);
+        cout << "[ + 100HP ]" << endl;
+        chr->setHealth(chr->getHealth() + 100);
         return;
     }
 }

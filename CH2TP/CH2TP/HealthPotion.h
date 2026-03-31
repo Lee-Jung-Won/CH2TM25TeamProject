@@ -15,14 +15,14 @@ public:
 		totalname.name = n;
 		totalname.rank = r;
 		healthRestore = cnt;
-		price = 50;
+		price = 30;
 		if (r == "Rare")
 		{
-			price = 100;
+			price = 50;
 		}
 		else if (r == "Epic")
 		{
-			price = 150;
+			price = 100;
 		}
 	}
 	const Tn& getName() const override;
