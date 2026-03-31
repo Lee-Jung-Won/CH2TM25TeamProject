@@ -77,7 +77,7 @@ int Shop::openshop(Character& who)
                        /_______  /|___|  /\____/|   __/           
                                \/      \/       |__|      
 )" << "\033[0m" << endl;
-	cout << "<<<<<<<<<<<<< 1. Potion Store            3.Out           2. Weapon Store >>>>>>>>>>>>>>" << endl;
+	cout << "<<<<<<<<<<<<< 1. Potion Store            0.Out           2. Weapon Store >>>>>>>>>>>>>>" << endl;
 	cout << "---------------------------------------------------------------------------------------" << endl;
 	cout << "MoneyYouHave : " << who.getGold() << "G" << endl;
 	cout << "---------------------------------------------------------------------------------------" << endl;
@@ -160,7 +160,7 @@ int Shop::openshop(Character& who)
 		cout << "---------------------------------------------------------------------------------------";
 		cout << endl;
 		who.printinventory();
-		chosenum = 3;
+		chosenum = 0;
 
 	}
 	
@@ -391,7 +391,7 @@ void Shop::buy(int num, Character& chr)
 				{
 					
 					chr.setGold(chr.getGold() - prewp.getprice());
-					chr.makeweapon(prewp);
+					chr.makeweapon(&prewp);
 				}
 				else
 				{
@@ -410,7 +410,7 @@ void Shop::buy(int num, Character& chr)
 					{
 						
 						chr.setGold(chr.getGold() - prewp.getprice());
-						chr.makeweapon(prewp);
+						chr.makeweapon(&prewp);
 					}
 					else
 					{
@@ -428,7 +428,7 @@ void Shop::buy(int num, Character& chr)
 				{
 					
 					chr.setGold(chr.getGold() - prewp.getprice());
-					chr.makeweapon(prewp);
+					chr.makeweapon(&prewp);
 				}
 				else
 				{
@@ -447,7 +447,7 @@ void Shop::buy(int num, Character& chr)
 					{
 						
 						chr.setGold(chr.getGold() - prewp.getprice());
-						chr.makeweapon(prewp);
+						chr.makeweapon(&prewp);
 					}
 					else
 					{
@@ -465,7 +465,7 @@ void Shop::buy(int num, Character& chr)
 				{
 					
 					chr.setGold(chr.getGold() - prewp.getprice());
-					chr.makeweapon(prewp);
+					chr.makeweapon(&prewp);
 				}
 				else
 				{
@@ -484,7 +484,7 @@ void Shop::buy(int num, Character& chr)
 					{
 						
 						chr.setGold(chr.getGold() - prewp.getprice());
-						chr.makeweapon(prewp);
+						chr.makeweapon(&prewp);
 					}
 					else
 					{
@@ -502,7 +502,7 @@ void Shop::buy(int num, Character& chr)
 				{
 					
 					chr.setGold(chr.getGold() - prewp.getprice());
-					chr.makeweapon(prewp);
+					chr.makeweapon(&prewp);
 				}
 				else
 				{
@@ -521,7 +521,7 @@ void Shop::buy(int num, Character& chr)
 					{
 						
 						chr.setGold(chr.getGold() - prewp.getprice());
-						chr.makeweapon(prewp);
+						chr.makeweapon(&prewp);
 					}
 					else
 					{
@@ -539,7 +539,7 @@ void Shop::buy(int num, Character& chr)
 				{
 					
 					chr.setGold(chr.getGold() - prewp.getprice());
-					chr.makeweapon(prewp);
+					chr.makeweapon(&prewp);
 				}
 				else
 				{
@@ -558,7 +558,7 @@ void Shop::buy(int num, Character& chr)
 					{
 						
 						chr.setGold(chr.getGold() - prewp.getprice());
-						chr.makeweapon(prewp);
+						chr.makeweapon(&prewp);
 					}
 					else
 					{
