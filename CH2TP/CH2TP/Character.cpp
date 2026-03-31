@@ -160,9 +160,10 @@ void Character::makepotion(Item* getpotion)
 
 }
 
-void Character::makeweapon(Danso& getweapon)
+void Character::makeweapon(Item* getweapon)
 {
-    Danso* temp1 = new Danso(getweapon);
+    Danso* temp = dynamic_cast<Danso*>(getweapon);
+    Danso* temp1 = new Danso(*temp);
 
     if (inventory2.size() == 0)
     {

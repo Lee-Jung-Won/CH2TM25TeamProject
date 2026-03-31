@@ -72,7 +72,7 @@ int main() {
             do
             {
                 out = sshhoopp.openshop(player);
-                if (out == 3)
+                if (out == 0)
                 {
                     break;
                 }

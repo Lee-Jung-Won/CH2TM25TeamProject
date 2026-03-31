@@ -29,7 +29,7 @@ public:
     // put name to initialize
     void printinventory() const;
     void makepotion(Item* getpotion);
-    void makeweapon(Danso& getweapon);
+    void makeweapon(Item* getweapon);
     Character* getInstance();
     vector<Item*>* getinventory();
     vector<Item*>* getwpinventory();
