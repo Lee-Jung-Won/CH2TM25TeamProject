@@ -158,7 +158,30 @@ void BattleSystem::StartBattle(Character& player)
 			logger.addLog(LogType::Damage, "\033[32m" + enemy->getName() + " takes " + std::to_string(player.getAttack()) + " damage\033[0m");
 			logger.addLog(LogType::Damage, "\033[31m" + enemy->getName() + "'s remaining HP: " + std::to_string(enemy->getHealth()) + "\033[0m");
 
-			if (enemy->getHealth() <= 0) // enemy die
+			if (enemy->getHealth() <= 0 && player.getLevel() >= 10)
+			{
+				system("cls");
+				cout << "\033[34mPeace has finally come to Line 1...\033[0m" << endl;
+				cout << "\033[33m" << R"(
+ _____   ___  ___  ___ _____   _____  _      _____   ___  ______  _  _  _ 
+|  __ \ / _ \ |  \/  ||  ___| /  __ \| |    |  ___| / _ \ | ___ \| || || |
+| |  \// /_\ \| .  . || |__   | /  \/| |    | |__  / /_\ \| |_/ /| || || |
+| | __ |  _  || |\/| ||  __|  | |    | |    |  __| |  _  ||    / | || || |
+| |_\ \| | | || |  | || |___  | \__/\| |____| |___ | | | || |\ \ |_||_||_|
+ \____/\_| |_/\_|  |_/\____/   \____/\_____/\____/ \_| |_/\_| \_|(_)(_)(_)
+					)" << "\033[0m" << endl;
+				cout << "Press Enter to exit..." << endl;
+				cin.get();
+
+				for (Monster* m : monsters) // 메모리 릭 방지
+				{
+					delete m;
+				}
+				monsters.clear();
+
+				exit(0);
+			}
+			else if (enemy->getHealth() <= 0) // enemy die
 			{
 				enemy->DeadText();
 
@@ -167,32 +190,9 @@ void BattleSystem::StartBattle(Character& player)
 				int inExp = enemy->getRewardExp();
 				int inGold = enemy->getRewardGold();
 
-				player.GainExp(inExp);
+				player.GaiHealth(30);
 				player.GainGold(inGold);
-
-				if (player.getLevel() >= 10)
-				{
-					system("cls");
-					cout << "\033[34mPeace has finally come to Line 1...\033[0m" << endl;
-					cout << "\033[33m" << R"(
- _____   ___  ___  ___ _____   _____  _      _____   ___  ______  _  _  _ 
-|  __ \ / _ \ |  \/  ||  ___| /  __ \| |    |  ___| / _ \ | ___ \| || || |
-| |  \// /_\ \| .  . || |__   | /  \/| |    | |__  / /_\ \| |_/ /| || || |
-| | __ |  _  || |\/| ||  __|  | |    | |    |  __| |  _  ||    / | || || |
-| |_\ \| | | || |  | || |___  | \__/\| |____| |___ | | | || |\ \ |_||_||_|
- \____/\_| |_/\_|  |_/\____/   \____/\_____/\____/ \_| |_/\_| \_|(_)(_)(_)
-					)" << "\033[0m" << endl;
-					cout << "Press Enter to exit..." << endl;
-					cin.get();
-
-					for (Monster* m : monsters) // 메모리 릭 방지
-					{
-						delete m;
-					}
-					monsters.clear();
-
-					exit(0);
-				}
+				player.GainExp(inExp);
 
 				for (Monster* m : monsters) // 메모리 릭 방지
 				{

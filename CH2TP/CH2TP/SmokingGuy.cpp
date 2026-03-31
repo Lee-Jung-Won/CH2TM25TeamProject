@@ -2,7 +2,7 @@
 #include <iostream>
 
 SmokingGuy::SmokingGuy()
-	: Monster("Smoking Guy", 0, 0, 50, 50)
+	: Monster("[Lv4]Smoking Guy", 0, 0, 100, 300)
 {
 	level = 4;
 	setstats();
@@ -13,8 +13,8 @@ void SmokingGuy::setstats()
 	random_device rd;
 	mt19937 gen(rd());
 
-	uniform_int_distribution<> hpDist(level * 40, level * 50);
-	uniform_int_distribution<> atkDist(level * 8, level * 10);
+	uniform_int_distribution<> hpDist(level * 135, level * 160);
+	uniform_int_distribution<> atkDist(level * 12, level * 13);
 
 	health = hpDist(gen);
 	maxHealth = health;
@@ -23,10 +23,10 @@ void SmokingGuy::setstats()
 
 void SmokingGuy::StartText()
 {
-	cout << "\033[31mSmoking Guy: dambe chumba?\033[0m" << endl;
+	cout << "\033[31m[Lv4]Smoking Guy: dambe chumba?\033[0m" << endl;
 }
 
 void SmokingGuy::DeadText()
 {
-	cout << "\033[31mSmoking Guy is DEAD!\033[0m" << endl;
+	cout << "\033[31m[Lv4]Smoking Guy is DEAD!\033[0m" << endl;
 }

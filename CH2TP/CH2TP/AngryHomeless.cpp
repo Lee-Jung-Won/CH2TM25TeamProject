@@ -4,7 +4,7 @@
 using namespace std;
 
 AngryHomeless::AngryHomeless()
-	: Monster("Deepsleep Man", 0, 0, 30, 25)
+	: Monster("[LV2]AngryHomeless", 0, 0, 60, 150)
 {
 	level = 2;
 	setstats();
@@ -15,8 +15,8 @@ void AngryHomeless::setstats()
 	random_device rd;
 	mt19937 gen(rd());
 
-	uniform_int_distribution<> hpDist(level * 30, level * 40);
-	uniform_int_distribution<> atkDist(level * 5, level * 8);
+	uniform_int_distribution<> hpDist(level * 125, level * 175);
+	uniform_int_distribution<> atkDist(level * 12.5, level * 17.5);
 
 	health = hpDist(gen);
 	maxHealth = health;
@@ -25,10 +25,10 @@ void AngryHomeless::setstats()
 
 void AngryHomeless::StartText()
 {
-	cout << "\033[31mAngryHomeless: 1000won please....\033[0m" << endl;
+	cout << "\033[31m[LV2]AngryHomeless: 1000won please....\033[0m" << endl;
 }
 
 void AngryHomeless::DeadText()
 {
-	cout << "\033[31mAngryHomeless is DEAD!\033[0m" << endl;
+	cout << "\033[31m[LV2]AngryHomeless is DEAD!\033[0m" << endl;
 }

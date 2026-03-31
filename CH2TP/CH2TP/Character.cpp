@@ -7,10 +7,10 @@ using namespace std;
 Character::Character(const string& characterName, bool showMessage) 
 {
     name = characterName;
-    level = 10;
-    maxHealth = 2000;
-    health = 2000;
-    attack = 300;
+    level = 1;
+    maxHealth = 200;
+    health = 200;
+    attack = 3000;
     exp = 0;
     maxExp = 100;
     instance = this;
@@ -217,6 +217,8 @@ void Character::useitem(int index)
     }
 }
 
+
+
 void Character::GainExp(int inExp)//using word inExp for monster's drop exp
 {
     exp += inExp;
@@ -230,6 +232,18 @@ void Character::GainExp(int inExp)//using word inExp for monster's drop exp
         LevelUp();
         
     }
+}
+
+void Character::GaiHealth(int inHealth)
+{
+    health += inHealth;
+    if (health > maxHealth)
+    {
+        health = maxHealth;
+    }
+    cout << "+ " << inHealth << " HP" << endl;
+
+
 }
 
 void Character::GainGold(int inGold)
@@ -254,16 +268,16 @@ void Character::LevelUp()
 {
     cout << "\033[33m" << R"(
   -----------------------------------------------------------------------------------------
- ¡è                                                                                       ¡è
- ¡è      .____     _______________   _______________.____       ____ _____________  __|__ ¡è
- ¡è      |    |    \_   _____/\   \ /   /\_   _____/|    |     |    |   \______   \   |   ¡è
- ¡è      |    |     |    __)_  \   Y   /  |    __)_ |    |     |    |   /|     ___/       ¡è
- ¡è      |    |___  |        \  \     /   |        \|    |___  |    |  / |    |           ¡è
- ¡è      |_______ \/_______  /   \___/   /_______  /|_______ \ |______/  |____|           ¡è
- ¡è              \/        \/                    \/         \/                            ¡è
- ¡è                                                                                       ¡è
+ ï¿½ï¿½                                                                                       ï¿½ï¿½
+ ï¿½ï¿½      .____     _______________   _______________.____       ____ _____________  __|__ ï¿½ï¿½
+ ï¿½ï¿½      |    |    \_   _____/\   \ /   /\_   _____/|    |     |    |   \______   \   |   ï¿½ï¿½
+ ï¿½ï¿½      |    |     |    __)_  \   Y   /  |    __)_ |    |     |    |   /|     ___/       ï¿½ï¿½
+ ï¿½ï¿½      |    |___  |        \  \     /   |        \|    |___  |    |  / |    |           ï¿½ï¿½
+ ï¿½ï¿½      |_______ \/_______  /   \___/   /_______  /|_______ \ |______/  |____|           ï¿½ï¿½
+ ï¿½ï¿½              \/        \/                    \/         \/                            ï¿½ï¿½
+ ï¿½ï¿½                                                                                       ï¿½ï¿½
   -----------------------------------------------------------------------------------------
-    )" << "\033[0m";
+    )" << "\033[0m" << endl;
 
     level++;
 
@@ -273,12 +287,12 @@ void Character::LevelUp()
 
     health = maxHealth;
 
-    attack += 20;
+    attack += 10;
 
   
 
     cout << "CurrentLevel is " << level << endl;
-    
+    cout << "CurrentAttack is +20 "  << endl;
   
 
 

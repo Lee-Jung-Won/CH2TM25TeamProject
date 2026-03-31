@@ -58,6 +58,9 @@ public:
     void GainExp(int inExp);
 
     void GainGold(int inGold);
+
+    void GaiHealth(int inHealth);
+
     int getGold();
     void setGold(int newGold);
 

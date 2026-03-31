@@ -4,7 +4,7 @@
 using namespace std;
 
 CashWalkGirl::CashWalkGirl()
-    : Monster("CashWalkGirl", 0, 0, 110, 85) 
+    : Monster("[Lv6]CashWalkGirl", 0, 0, 140, 600) 
 {
     level = 6;     
     setStats();    
@@ -15,8 +15,8 @@ void CashWalkGirl::setStats()
     random_device rd;
     mt19937 gen(rd()); 
 
-    uniform_int_distribution<> hpDist(level * 30, level * 35);  
-    uniform_int_distribution<> atkDist(level * 5, level * 7);   
+    uniform_int_distribution<> hpDist(level * 165, level * 200);  
+    uniform_int_distribution<> atkDist(level * 11, level * 12);   
 
     health = hpDist(gen);
     maxHealth = health;
@@ -25,10 +25,10 @@ void CashWalkGirl::setStats()
 
 void CashWalkGirl::StartText()
 {
-    cout << "\033[31mCashWalk Girl: Dumchit, Dumchit\033[0m" << endl;
+    cout << "\033[31m[Lv6]CashWalk Girl: Dumchit, Dumchit\033[0m" << endl;
 }
 
 void CashWalkGirl::DeadText()
 {
-    cout << "\033[31mCashWalk Girl is DEAD!\033[0m" << endl;
+    cout << "\033[31m[Lv6]CashWalk Girl is DEAD!\033[0m" << endl;
 }

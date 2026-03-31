@@ -30,6 +30,30 @@ void HealthPotion::use(Character* chr)
     if (totalname.rank == "Epic")
     {
         int valuecompare = 0;
+        valuecompare = chr->getHealth() + 200 - chr->getmaxHealth();
+        if (valuecompare > 0)
+        {
+            chr->setHealth(chr->getHealth() + 200 - valuecompare);
+            return;
+        }
+        chr->setHealth(chr->getHealth() + 200);
+        return;
+    }
+    else if(totalname.rank == "Rare")
+    {
+        int valuecompare = 0;
+        valuecompare = chr->getHealth() + 150 - chr->getmaxHealth();
+        if (valuecompare > 0)
+        {
+            chr->setHealth(chr->getHealth() + 150 - valuecompare);
+            return;
+        }
+        chr->setHealth(chr->getHealth() + 150);
+        return;
+    }
+    else if (totalname.rank == "Normal")
+    {
+        int valuecompare = 0;
         valuecompare = chr->getHealth() + 100 - chr->getmaxHealth();
         if (valuecompare > 0)
         {
@@ -37,30 +61,6 @@ void HealthPotion::use(Character* chr)
             return;
         }
         chr->setHealth(chr->getHealth() + 100);
-        return;
-    }
-    else if(totalname.rank == "Rare")
-    {
-        int valuecompare = 0;
-        valuecompare = chr->getHealth() + 50 - chr->getmaxHealth();
-        if (valuecompare > 0)
-        {
-            chr->setHealth(chr->getHealth() + 50 - valuecompare);
-            return;
-        }
-        chr->setHealth(chr->getHealth() + 50);
-        return;
-    }
-    else if (totalname.rank == "Normal")
-    {
-        int valuecompare = 0;
-        valuecompare = chr->getHealth() + 30 - chr->getmaxHealth();
-        if (valuecompare > 0)
-        {
-            chr->setHealth(chr->getHealth() + 30 - valuecompare);
-            return;
-        }
-        chr->setHealth(chr->getHealth() + 30);
         return;
     }
 }

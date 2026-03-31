@@ -2,7 +2,7 @@
 #include <iostream>
 
 HandleExerciser::HandleExerciser()
-	: Monster("Handle Exerciser", 0, 0, 170, 130)
+	: Monster("[Lv9]Handle Exerciser", 0, 0, 200, 1500)
 {
 	level = 9;
 	setstats();
@@ -13,8 +13,8 @@ void HandleExerciser::setstats()
 	random_device rd;
 	mt19937 gen(rd());
 
-	uniform_int_distribution<> hpDist(level * 30, level * 40);
-	uniform_int_distribution<> atkDist(level * 5, level * 10);
+	uniform_int_distribution<> hpDist(level * 189, level * 211);
+	uniform_int_distribution<> atkDist(level * 9.4, level * 11);
 
 	health = hpDist(gen);
 	maxHealth = health;
@@ -23,10 +23,10 @@ void HandleExerciser::setstats()
 
 void HandleExerciser::StartText()
 {
-	cout << "\033[31mHandle Exerciser: Endless Supanova Tornado Splash-! ! !\033[0m" << endl;
+	cout << "\033[31m[Lv9]Handle Exerciser: Endless Supanova Tornado Splash-! ! !\033[0m" << endl;
 }
 
 void HandleExerciser::DeadText()
 {
-	cout << "\033[31mHandle Exerciser is DEAD!\033[0m" << endl;
+	cout << "\033[31m[Lv9]Handle Exerciser is DEAD!\033[0m" << endl;
 }
