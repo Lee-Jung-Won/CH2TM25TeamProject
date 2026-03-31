@@ -27,6 +27,7 @@ protected:
 public:
 
     // put name to initialize
+    void printinventory() const;
     void makepotion(Item* getpotion);
     void makeweapon(Danso& getweapon);
     Character* getInstance();

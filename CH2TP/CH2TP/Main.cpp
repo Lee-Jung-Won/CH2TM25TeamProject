@@ -67,7 +67,6 @@ int main() {
         case 1: system("cls"); BattleSystem::StartBattle(player, log); break;
 
         case 2:
-            system("cls");
             int cnum = 0;
             int out = 0;
             do
@@ -81,11 +80,9 @@ int main() {
                 cin >> cnum;
                 if (cnum == 0)
                 {
-                    system("CLS");
                     continue;
                 }
                 sshhoopp.buy(cnum, player);
-                player.ShowStatus();
             } while (1);
             break;
         }

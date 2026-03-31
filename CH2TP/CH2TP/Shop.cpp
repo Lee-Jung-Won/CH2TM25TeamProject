@@ -21,11 +21,7 @@ Shop::Shop()
 	shopsobiinven.push_back(SNEXP);
 	shopsobiinven.push_back(SREXP);
 	shopsobiinven.push_back(SEEXP);
-	//SLDANSO = new Danso("Plastic");
-	//SSDANSO = new Danso("Silver");
-	//SGDANSO = new Danso("Gold");
-	//SPDANSO = new Danso("Platinum");
-	//SDDANSO = new Danso("Diamond");
+
 
 }
 
@@ -65,6 +61,7 @@ Shop::~Shop()
 
 int Shop::openshop(Character& who)
 {
+	system("cls");
 	cout << endl;
 	cout << "\033[36m" << R"(
                __      __       .__                               
@@ -84,11 +81,13 @@ int Shop::openshop(Character& who)
 	cout << "---------------------------------------------------------------------------------------" << endl;
 	cout << "MoneyYouHave : " << who.getGold() << "G" << endl;
 	cout << "---------------------------------------------------------------------------------------" << endl;
+	who.printinventory();
 	cout << "Choose number you want to go... : ";
 	cin >> chosenum;
 	system("CLS");
 	if (chosenum == 1)
 	{
+		system("cls");
 		cout << "---------------------------------------------------------------------------------------";
 		cout << "\033[37m" << R"(
                      __  .__                            __                        
@@ -115,10 +114,11 @@ int Shop::openshop(Character& who)
 		cout << "---------------------------------------------------------------------------------------" << endl;
 		cout << "MoneyYouHave : " << who.getGold() << "G" << "                                                           0. Back" << endl;
 		cout << "---------------------------------------------------------------------------------------" << endl;
-
+		who.printinventory();
 	}
 	else if (chosenum == 2)
 	{
+		system("cls");
 		cout << "---------------------------------------------------------------------------------------";
 		cout << "\033[37m" << R"(                             __                        
   __  _  __ ____ _____  ______   ____   ____       _______/  |_  ___________   ____  
@@ -127,25 +127,26 @@ int Shop::openshop(Character& who)
     \/\_/  \___  >____  /   __/ \____/|___|  /   /____  > |__|  \____/|__|    \___  >
                \/     \/|__|               \/         \/                          \/ )" << "\033[0m" << endl << endl;
 		cout << "=============================------------------------------============================" << endl;
-		cout << "========================== <<  Danso_               Store  >> =========================" << endl;
+		cout << "========================= <<  Danso_               Store  >> ==========================" << endl;
 		cout << "=============================------------------------------============================" << endl;
-		cout << "=======                    1. Plastic Danso ::  50G (+30dmg)                    =======" << endl;
+		cout << "=======                   1. Plastic Danso ::  150G (+30dmg)                    =======" << endl;
 		cout << "=======================================================================================" << endl;
-		cout << "=======                    2. Silver  Danso :: 100G (+60dmg)                    =======" << endl;
+		cout << "=======                   2. Silver  Danso ::  300G (+60dmg)                    =======" << endl;
 		cout << "=======================================================================================" << endl;
-		cout << "=======                    3. Gold    Danso :: 150G (+120dmg)                   =======" << endl;
+		cout << "=======                   3. Gold    Danso ::  500G (+120dmg)                   =======" << endl;
 		cout << "=======================================================================================" << endl;
-		cout << "=======                    4. Platinu Danso :: 200G (+200dmg)                   =======" << endl;
+		cout << "=======                   4. Platinu Danso ::  750G (+200dmg)                   =======" << endl;
 		cout << "=======================================================================================" << endl;
-		cout << "=======                    5. Diamond Danso :: 250G (+300dmg)                   =======" << endl;
+		cout << "=======                   5. Diamond Danso :: 1000G (+300dmg)                   =======" << endl;
 		cout << "=======================================================================================" << endl;
 		cout << "---------------------------------------------------------------------------------------" << endl;
 		cout << "MoneyYouHave : " << who.getGold() << "G" << "                                                           0. Back" << endl;
 		cout << "---------------------------------------------------------------------------------------" << endl;
-
+		who.printinventory();
 	}
 	else
 	{
+		system("cls");
 		cout << "---------------------------------------------------------------------------------------";
 		cout << endl;
 		cout << "\033[36m" << R"(
@@ -158,49 +159,9 @@ int Shop::openshop(Character& who)
 )" << "\033[0m" << endl;
 		cout << "---------------------------------------------------------------------------------------";
 		cout << endl;
+		who.printinventory();
 		chosenum = 3;
 
-		//int cntt = 0;
-		//cout << "----------==========********* INVENTORY *********=========----------" << endl;
-		//if (who.getinventory()->size() > 0)
-		//{
-		//	for (auto& i : *(who.getinventory()))
-		//	{
-		//		cntt++;
-		//		cout << cntt << ". [" << left << setw(6) << i->getName().rank << "]- " << i->getName().name
-		//			<< "... " << i->getstore() << "\t";
-		//		if (cntt % 2 == 0)
-		//		{
-		//			cout << endl;
-		//		}
-		//	}
-		//}
-		//else
-		//{
-		//	cout << "\t\t\t POTION NOTHING HAVE" << endl;
-		//}
-		//cout << endl << endl;
-		//cntt = 0;
-		//if (who.getwpinventory()->size() > 0)
-		//{
-		//	for (auto& i : *(who.getwpinventory()))
-		//	{
-		//		cntt++;
-		//		Danso* j = dynamic_cast<Danso*>(i);
-		//		cout << cntt << ". [" << left << setw(6) << j->getName().rank << "]- " << j->getName().name
-		//			<< "... [+" << j->getstore() << "Dmg] [+" << j->getupgrade() << "]\t";
-		//		if (cntt % 2 == 0)
-		//		{
-		//			cout << endl;
-		//		}
-		//	}
-		//}
-		//else
-		//{
-		//	cout << "\t\t\t WEAPON NOTHING HAVE" << endl;
-		//}
-		//cout << endl;
-		//cout << "----------==========********* --------- *********=========----------" << endl;
 	}
 	
 	return chosenum;
@@ -208,11 +169,6 @@ int Shop::openshop(Character& who)
 
 void Shop::buy(int num, Character& chr)
 {
-	// �ּ� addinventory�ϰ� �Ű������� �ٽ� new�Ҵ�
-	// �̷��� ��ü�ϳ��� Ŀ��ġ�°� �������������� ������ �ߺ��������� �־
-	// ���� �Ѱ��ִ� ��Ȳ���� �Ű������� �ٽ� new�Ҵ��ϸ� �޸𸮴г�
-	// ������ �ֳ����� Ȯ���ϰ� ������ �ѱ�� delete
-	// ������ addinventory
 	switch (chosenum)
 	{
 	case 1: // potionstore
@@ -223,24 +179,31 @@ void Shop::buy(int num, Character& chr)
 				int many = 1;
 				cout << "How Many you Want :: ";
 				cin >> many;
-				// ��� ��ðڽ��ϱ�? ����....> 1�ڸ��� ����������ǰ�...
-				HealthPotion* prehp = new HealthPotion(many, "Normal");
-				if (SNHP->getstore() > 0)
+				if (many > 0 && many <= SNHP->getstore())
 				{
-					if (chr.getGold() >= (prehp->getprice() * many))
+					// ��� ��ðڽ��ϱ�? ����....> 1�ڸ��� ����������ǰ�...
+					HealthPotion* prehp = new HealthPotion(many, "Normal");
+					if (SNHP->getstore() > 0)
 					{
-						chr.makepotion(prehp);
-						chr.setGold(chr.getGold() - many * prehp->getprice());
-						shopsobiinven[0]->setstore(shopsobiinven[0]->getstore() - many);
+						if (chr.getGold() >= (prehp->getprice() * many))
+						{
+							chr.makepotion(prehp);
+							chr.setGold(chr.getGold() - many * prehp->getprice());
+							shopsobiinven[0]->setstore(shopsobiinven[0]->getstore() - many);
+						}
+						else
+						{
+							cout << "Not Enough Money" << endl;
+						}
 					}
 					else
 					{
-						cout << "Not Enough Money" << endl;
+						cout << "\t[ Normal ] HP Potion is [ SLOD OUT ]";
 					}
 				}
 				else
 				{
-					cout << "\t[ Normal ] HP Potion is [ SLOD OUT ]";
+					cout << "Input ~Wrond Number~ : 1 ~ " << SNHP->getstore() << endl;
 				}
 				break;
 			}
@@ -249,24 +212,31 @@ void Shop::buy(int num, Character& chr)
 				int many = 1;
 				cout << "How Many you Want :: ";
 				cin >> many;
-				// ��� ��ðڽ��ϱ�? ����....> 1�ڸ��� ����������ǰ�...
-				HealthPotion* prehp = new HealthPotion(many, "Rare");
-				if (SRHP->getstore() > 0)
+				if (many > 0 && many <= SRHP->getstore())
 				{
-					if (chr.getGold() >= (prehp->getprice() * many))
+					// ��� ��ðڽ��ϱ�? ����....> 1�ڸ��� ����������ǰ�...
+					HealthPotion* prehp = new HealthPotion(many, "Rare");
+					if (SRHP->getstore() > 0)
 					{
-						chr.makepotion(prehp);
-						chr.setGold(chr.getGold() - many * prehp->getprice());
-						shopsobiinven[1]->setstore(shopsobiinven[1]->getstore() - many);
+						if (chr.getGold() >= (prehp->getprice() * many))
+						{
+							chr.makepotion(prehp);
+							chr.setGold(chr.getGold() - many * prehp->getprice());
+							shopsobiinven[1]->setstore(shopsobiinven[1]->getstore() - many);
+						}
+						else
+						{
+							cout << "Not Enough Money" << endl;
+						}
 					}
 					else
 					{
-						cout << "Not Enough Money" << endl;
+						cout << "\t[ Rare ] HP Potion is [ SLOD OUT ]";
 					}
 				}
 				else
 				{
-					cout << "\t[ Rare ] HP Potion is [ SLOD OUT ]";
+					cout << "Input ~Wrond Number~ : 1 ~ " << SRHP->getstore() << endl;
 				}
 				break;
 			}
@@ -275,24 +245,31 @@ void Shop::buy(int num, Character& chr)
 				int many = 1;
 				cout << "How Many you Want :: ";
 				cin >> many;
-				// ��� ��ðڽ��ϱ�? ����....> 1�ڸ��� ����������ǰ�...
-				HealthPotion* prehp = new HealthPotion(many, "Epic");
-				if (SEHP->getstore() > 0)
+				if (many > 0 && many <= SEHP->getstore())
 				{
-					if (chr.getGold() >= (prehp->getprice() * many))
+					// ��� ��ðڽ��ϱ�? ����....> 1�ڸ��� ����������ǰ�...
+					HealthPotion* prehp = new HealthPotion(many, "Epic");
+					if (SEHP->getstore() > 0)
 					{
-						chr.makepotion(prehp);
-						chr.setGold(chr.getGold() - many * prehp->getprice());
-						shopsobiinven[2]->setstore(shopsobiinven[2]->getstore() - many);
+						if (chr.getGold() >= (prehp->getprice() * many))
+						{
+							chr.makepotion(prehp);
+							chr.setGold(chr.getGold() - many * prehp->getprice());
+							shopsobiinven[2]->setstore(shopsobiinven[2]->getstore() - many);
+						}
+						else
+						{
+							cout << "Not Enough Money" << endl;
+						}
 					}
 					else
 					{
-						cout << "Not Enough Money" << endl;
+						cout << "\t[ Epic ] HP Potion is [ SLOD OUT ]";
 					}
 				}
 				else
 				{
-					cout << "\t[ Epic ] HP Potion is [ SLOD OUT ]";
+					cout << "Input ~Wrond Number~ : 1 ~ " << SEHP->getstore() << endl;
 				}
 				break;
 			}
@@ -301,24 +278,31 @@ void Shop::buy(int num, Character& chr)
 				int many = 1;
 				cout << "How Many you Want :: ";
 				cin >> many;
-				// ��� ��ðڽ��ϱ�? ����....> 1�ڸ��� ����������ǰ�...
-				ExpPotion* prehp = new ExpPotion(many, "Normal");
-				if (SNEXP->getstore() > 0)
+				if (many > 0 && many <= SNEXP->getstore())
 				{
-					if (chr.getGold() >= (prehp->getprice() * many))
+					// ��� ��ðڽ��ϱ�? ����....> 1�ڸ��� ����������ǰ�...
+					ExpPotion* prehp = new ExpPotion(many, "Normal");
+					if (SNEXP->getstore() > 0)
 					{
-						chr.makepotion(prehp);
-						chr.setGold(chr.getGold() - many * prehp->getprice());
-						shopsobiinven[num-1]->setstore(shopsobiinven[num-1]->getstore() - many);
+						if (chr.getGold() >= (prehp->getprice() * many))
+						{
+							chr.makepotion(prehp);
+							chr.setGold(chr.getGold() - many * prehp->getprice());
+							shopsobiinven[num - 1]->setstore(shopsobiinven[num - 1]->getstore() - many);
+						}
+						else
+						{
+							cout << "Not Enough Money" << endl;
+						}
 					}
 					else
 					{
-						cout << "Not Enough Money" << endl;
+						cout << "\t[ Normal ] EXP Potion is [ SLOD OUT ]";
 					}
 				}
 				else
 				{
-					cout << "\t[ Normal ] EXP Potion is [ SLOD OUT ]";
+					cout << "Input ~Wrond Number~ : 1 ~ " << SNEXP->getstore() << endl;
 				}
 				break;
 			}
@@ -327,24 +311,31 @@ void Shop::buy(int num, Character& chr)
 				int many = 1;
 				cout << "How Many you Want :: ";
 				cin >> many;
-				// ��� ��ðڽ��ϱ�? ����....> 1�ڸ��� ����������ǰ�...
-				ExpPotion* prehp = new ExpPotion(many, "Rare");
-				if (SREXP->getstore() > 0)
+				if (many > 0 && many <= SREXP->getstore())
 				{
-					if (chr.getGold() >= (prehp->getprice() * many))
+					// ��� ��ðڽ��ϱ�? ����....> 1�ڸ��� ����������ǰ�...
+					ExpPotion* prehp = new ExpPotion(many, "Rare");
+					if (SREXP->getstore() > 0)
 					{
-						chr.makepotion(prehp);
-						chr.setGold(chr.getGold() - many * prehp->getprice());
-						shopsobiinven[num - 1]->setstore(shopsobiinven[num - 1]->getstore() - many);
+						if (chr.getGold() >= (prehp->getprice() * many))
+						{
+							chr.makepotion(prehp);
+							chr.setGold(chr.getGold() - many * prehp->getprice());
+							shopsobiinven[num - 1]->setstore(shopsobiinven[num - 1]->getstore() - many);
+						}
+						else
+						{
+							cout << "Not Enough Money" << endl;
+						}
 					}
 					else
 					{
-						cout << "Not Enough Money" << endl;
+						cout << "\t[ Rare ] EXP Potion is [ SLOD OUT ]";
 					}
 				}
 				else
 				{
-					cout << "\t[ Rare ] EXP Potion is [ SLOD OUT ]";
+					cout << "Input ~Wrond Number~ : 1 ~ " << SREXP->getstore() << endl;
 				}
 				break;
 			}
@@ -353,24 +344,31 @@ void Shop::buy(int num, Character& chr)
 				int many = 1;
 				cout << "How Many you Want :: ";
 				cin >> many;
-				// ��� ��ðڽ��ϱ�? ����....> 1�ڸ��� ����������ǰ�...
-				ExpPotion* prehp = new ExpPotion(many, "Epic");
-				if (SEEXP->getstore() > 0)
+				if (many > 0 && many <= SEEXP->getstore())
 				{
-					if (chr.getGold() >= (prehp->getprice() * many))
+					// ��� ��ðڽ��ϱ�? ����....> 1�ڸ��� ����������ǰ�...
+					ExpPotion* prehp = new ExpPotion(many, "Epic");
+					if (SEEXP->getstore() > 0)
 					{
-						chr.makepotion(prehp);
-						chr.setGold(chr.getGold() - many * prehp->getprice());
-						shopsobiinven[num - 1]->setstore(shopsobiinven[num - 1]->getstore() - many);
+						if (chr.getGold() >= (prehp->getprice() * many))
+						{
+							chr.makepotion(prehp);
+							chr.setGold(chr.getGold() - many * prehp->getprice());
+							shopsobiinven[num - 1]->setstore(shopsobiinven[num - 1]->getstore() - many);
+						}
+						else
+						{
+							cout << "Not Enough Money" << endl;
+						}
 					}
 					else
 					{
-						cout << "Not Enough Money" << endl;
+						cout << "\t[ Epic ] EXP Potion is [ SLOD OUT ]";
 					}
 				}
 				else
 				{
-					cout << "\t[ Epic ] EXP Potion is [ SLOD OUT ]";
+					cout << "Input ~Wrond Number~ : 1 ~ " << SEEXP->getstore() << endl;
 				}
 				break;
 			}
@@ -564,154 +562,5 @@ void Shop::buy(int num, Character& chr)
 
 		break;
 	}
-	//if (num == 1)
-	//{
 
-
-	//	//if (chr.getGold() >= 50)//
-	//	//{
-	//	//	// �κ��丮���� �ߺ� ã�� �� �ߺ��̸� addinven�� delete
-	//	//	//                 ã�� �� �����̸� addinven�� temp�� new�Ҵ� �Ű����� ����
-	//	//	for (auto& i : *(chr.getinventory()))
-	//	//	{
-	//	//		if (i->getName() == SNHP->getName()) //same name
-	//	//		{
-	//	//			i->setstore(i->getstore() + 1);
-	//	//			// --money
-	//	//			chr.setGold(chr.getGold() - 50);
-	//	//			return;
-	//	//		}
-	//	//	}
-	//	//	//������ ��ã�Ҵ�
-	//	//	HealthPotion* temp = new HealthPotion(1, "Normal");
-	//	//	chr.addhpinventory(temp);
-	//	//	chr.setGold(chr.getGold() - 50);
-	//	//	return;
-	//	//}
-	//	//cout << "Not enough Money" << endl;
-	//	//return;
-	//}
-	//else if (num == 2)
-	//{
-	//	if (chr.getGold() >= 100)//
-	//	{
-	//		// �κ��丮���� �ߺ� ã�� �� �ߺ��̸� addinven�� delete
-	//		//                 ã�� �� �����̸� addinven�� temp�� new�Ҵ� �Ű����� ����
-	//		for (auto& i : *(chr.getinventory()))
-	//		{
-	//			if (i->getName() == SRHP->getName()) //same name
-	//			{
-	//				i->setstore(i->getstore() + 1);
-	//				// --money
-	//				chr.setGold(chr.getGold() - 100);
-	//				return;
-	//			}
-	//		}
-	//		//������ ��ã�Ҵ�
-	//		HealthPotion* temp = new HealthPotion(1, "Rare");
-	//		chr.addhpinventory(temp);
-	//		chr.setGold(chr.getGold() - 100);
-	//		return;
-	//	}
-	//	cout << "Not enough Money" << endl;
-	//	return;
-	//}
-	//else if (num == 3)
-	//{
-	//	if (chr.getGold() >= 150)//
-	//	{
-	//		// �κ��丮���� �ߺ� ã�� �� �ߺ��̸� addinven�� delete
-	//		//                 ã�� �� �����̸� addinven�� temp�� new�Ҵ� �Ű����� ����
-	//		for (auto& i : *(chr.getinventory()))
-	//		{
-	//			if (i->getName() == SEHP->getName()) //same name
-	//			{
-	//				i->setstore(i->getstore() + 1);
-	//				// --money
-	//				chr.setGold(chr.getGold() - 150);
-	//				return;
-	//			}
-	//		}
-	//		//������ ��ã�Ҵ�
-	//		HealthPotion* temp = new HealthPotion(1, "Epic");
-	//		chr.addhpinventory(temp);
-	//		chr.setGold(chr.getGold() - 150);
-	//		return;
-	//	}
-	//	cout << "Not enough Money" << endl;
-	//	return;
-	//}
-	 
-	 
-
-//	if (num == 4)
-//	{
-//		if (chr.getGold() >= 100)//
-//		{
-//			// --money
-//			chr.setGold(chr.getGold() - 100);
-//			Danso* temp = new Danso("Plastic");
-//			chr.addweaponinventory(temp);
-//			return;
-//		}
-//		cout << "Not enough Money" << endl;
-//		return;
-//	}
-//	else if (num == 5)
-//	{
-//		if (chr.getGold() >= 200)//
-//		{
-//			// --money
-//			chr.setGold(chr.getGold() - 200);
-//			Danso* temp = new Danso("Silver");
-//			chr.addweaponinventory(temp);
-//			return;
-//		}
-//		cout << "Not enough Money" << endl;
-//		return;
-//	}
-//	else if (num == 6)
-//	{
-//		if (chr.getGold() >= 300)//
-//		{
-//			// --money
-//			chr.setGold(chr.getGold() - 300);
-//			Danso* temp = new Danso("Gold");
-//			chr.addweaponinventory(temp);
-//			return;
-//		}
-//		cout << "Not enough Money" << endl;
-//		return;
-//	}
-//	else if (num == 7)
-//	{
-//		if (chr.getGold() >= 400)//
-//		{
-//			// --money
-//			chr.setGold(chr.getGold() - 400);
-//			Danso* temp = new Danso("Platinum");
-//			chr.addweaponinventory(temp);
-//			return;
-//		}
-//		cout << "Not enough Money" << endl;
-//		return;
-//	}
-//	else if (num == 8)
-//	{
-//		if (chr.getGold() >= 500)//
-//		{
-//			// --money
-//			chr.setGold(chr.getGold() - 500);
-//			Danso* temp = new Danso("Diamond");
-//			chr.addweaponinventory(temp);
-//			return;
-//		}
-//		cout << "Not enough Money" << endl;
-//		return;
-//	}
-//	else
-//	{
-//		cout << "Wrong Number" << endl;
-//		return;
-//	}
 }
