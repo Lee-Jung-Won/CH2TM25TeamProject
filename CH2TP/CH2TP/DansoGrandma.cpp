@@ -2,7 +2,7 @@
 #include <iostream>
 
 DansoGrandma::DansoGrandma()
-	:Monster("[Lv9]Danso Grandma", 0, 0, 200, 135)
+	:Monster("[Lv9]Danso Grandma", 0, 0, 200, 1500)
 {
 	level =9;
 	setstats();
@@ -13,7 +13,7 @@ void DansoGrandma::setstats()
 	random_device rd;
 	mt19937 gen(rd());
 
-	uniform_int_distribution<> hpDist(level * 189, level * 211);
+	uniform_int_distribution<> hpDist(level * 889, level * 1238);
 	uniform_int_distribution<> atkDist(level * 9.4, level * 11);
 
 	health = hpDist(gen);
