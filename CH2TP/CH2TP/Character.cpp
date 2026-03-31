@@ -16,13 +16,12 @@ Character::Character(const string& characterName, bool showMessage)
     instance = this;
     gold = 500;
 
-    if (showMessage) 
+    if (showMessage)
+    {
         cout << "Welcome, " << name << "! The train is arriving. Please, watch your step." << endl;
 
-        cout << "" << endl;
-
         cout << "Screen door is opening..." << endl;
-
+    }
 
 
 }
